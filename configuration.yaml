@@ -115,7 +115,7 @@ mqtt:
   username: !secret mosquitto_user
   password: !secret mosquitto_pass
 
-apple_tv: !include apple_tv
+apple_tv: !include apple_tv.yaml
 automation: !include automations.yaml
 device_tracker: !include trackers.yaml
 group: !include groups.yaml
