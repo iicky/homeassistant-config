@@ -1,0 +1,78 @@
+
+#------------------------------------------------------------------------------
+# Broadlink IR Devices
+#------------------------------------------------------------------------------
+  - platform: broadlink
+    host: 192.168.1.90
+    mac: "78:0f:77:00:7b:d0"
+    type: rm_mini
+    timeout: 15
+    switches:
+
+        # LG Air Conditioner
+        ac_main:
+            friendly_name: "Living Room AC"
+            command_on: "JgBYAAABJ5IUNhMRFBEUERMRFBEUEBQ2FBAUNhQ1FBETERQ2EzYUEBQ2FBAUERQRExEUERQREzYUERM2FDUUNRQ2FDUUNRQRFAAFaAABJ0gUAAxHAAEnSBQADQU="
+            command_off: "JgBYAAABJ5IUNhMRFBEUERMRFBEUEBQ2FBAUNhQ1FBETERQ2EzYUEBQ2FBAUERQRExEUERQREzYUERM2FDUUNRQ2FDUUNRQRFAAFaAABJ0gUAAxHAAEnSBQADQU="
+
+        # LG TV
+        tv_main:
+            friendly_name: "Living Room TV"
+            command_on: "JgBQAAABKZIUEhMSEzYUERQRFBITEhMSEzYUNhQRFDYTNhQ2FDYTNhQRFBITEhM2FBEUERQRFBEUNhQ0FTYUEhM2FDYUNRQ2FAAFJQABKUkTAA0FAAAAAAAAAAA="
+            command_off: "JgBQAAABKZIUEhMSEzYUERQRFBITEhMSEzYUNhQRFDYTNhQ2FDYTNhQRFBITEhM2FBEUERQRFBEUNhQ0FTYUEhM2FDYUNRQ2FAAFJQABKUkTAA0FAAAAAAAAAAA="
+
+        # Receiver
+        #receiver:
+        #    friendly_name: "Receiver"
+        #    command_on: "JgBYAAABJ5MUERM2FBEUERQ1FBEUNhQ2FBETERQ2FDYTERQ2FDYUERM2FDYUERQ1FBEUERQ2FDUUERQRFDYUEBQ2FDYUERMRFAAFGwABKEoUAAxKAAEoSBUADQU="
+
+
+#------------------------------------------------------------------------------
+# Tuya Switches
+#------------------------------------------------------------------------------
+  - platform: tuya
+    name: Bookcase
+    host: 192.168.1.93
+    local_key: 2d209fb34549a518
+    device_id: 03200135dc4f2221cc51
+    id: 1
+
+  - platform: tuya
+    name: Petcube
+    host: 192.168.1.94
+    local_key: 55864f722655e9a6
+    device_id: 03200135dc4f2222074d
+    id: 1
+
+#------------------------------------------------------------------------------
+# MQTT Switches
+#------------------------------------------------------------------------------
+
+  - platform: mqtt
+    name: "Blacksmith"
+    state_topic: "sonoff/sonoff_002/stat"
+    command_topic: "sonoff/sonoff_002"
+    qos: 0
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Soldering Iron"
+    state_topic: "sonoff/sonoff_004/stat"
+    command_topic: "sonoff/sonoff_004"
+    qos: 0
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "RGB Led"
+    state_topic: "testing/rgbled"
+    command_topic: "testing/rgbled"
+    #availability_topic: "home/bedroom/switch1/available"
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    qos: 0
+    retain: false

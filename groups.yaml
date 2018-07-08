@@ -1,0 +1,73 @@
+default_view:
+  name: Home
+  view: yes
+  entities:    
+    - group.livingroom
+    - group.bedroom
+    - group.office
+    - group.plants
+    - group.weather
+    - group.trackers
+    - group.testing
+                     
+livingroom:
+  name: Living Room
+  entities:    
+    - switch.lite_brite
+    - switch.star_light
+    - switch.bookcase
+    - switch.petcube
+    - switch.tv_main
+    - switch.ac_main
+    - light.hoplite
+    - light.blue_jar
+    - media_player.receiver
+    - media_player.apple_tv
+
+bedroom:
+  name: Bedroom
+  entities:
+    - switch.dohm
+    - switch.blacksmith
+
+office:
+  name: Office
+  entities:
+    - switch.soldering_iron
+
+plants:
+  name: Plants
+  entities:
+    - plant.christmas_cactus
+    - sensor.christmas_cactus_battery
+    - sensor.christmas_cactus_conductivity
+    - sensor.christmas_cactus_light_intensity
+    - sensor.christmas_cactus_moisture
+    - sensor.christmas_cactus_temperature
+    - plant.snake_plant
+    - sensor.snake_plant_battery
+    - sensor.snake_plant_conductivity
+    - sensor.snake_plant_light_intensity
+    - sensor.snake_plant_moisture
+    - sensor.snake_plant_temperature
+
+trackers:
+  name: Trackers
+  entities:
+    - device_tracker.maggies_iphone_8
+    - device_tracker.mickeys_iphone_x
+    - device_tracker.google_maps_101608876393904256312
+
+weather:
+  name: Weather
+  entities:
+    - sun.sun
+    - sensor.dark_sky_icon
+    - sensor.dark_sky_nearest_storm_distance
+    - sensor.dark_sky_summary
+    - sensor.yr_symbol
+
+testing:
+  name: Testing
+  entities:
+    - switch.rgb_led

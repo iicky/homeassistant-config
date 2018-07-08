@@ -1,0 +1,128 @@
+#------------------------------------------------------------------------------
+# HOME ASSISTANT
+#------------------------------------------------------------------------------
+homeassistant:
+
+  # Name of the location where Home Assistant is running
+  name: Home
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret homeassistant_time_zone
+
+  # Customization file
+  customize: !include customize.yaml
+
+#------------------------------------------------------------------------------
+# FRONTEND
+#------------------------------------------------------------------------------
+frontend:
+
+#------------------------------------------------------------------------------
+# CONFIG
+#------------------------------------------------------------------------------
+config:
+
+#------------------------------------------------------------------------------
+# HTTP
+#------------------------------------------------------------------------------
+http:
+  api_password: !secret http_password
+  base_url: !secret http_base_url
+
+#------------------------------------------------------------------------------
+# UPDATER
+#------------------------------------------------------------------------------
+updater:
+  include_used_components: true
+
+#------------------------------------------------------------------------------
+# DISCOVERY
+#------------------------------------------------------------------------------
+#discovery:
+
+#------------------------------------------------------------------------------
+# CONVERSATION
+#------------------------------------------------------------------------------
+conversation:
+
+#------------------------------------------------------------------------------
+# HISTORY
+#------------------------------------------------------------------------------
+history:
+
+#------------------------------------------------------------------------------
+# LOGBOOK
+#------------------------------------------------------------------------------
+logbook:
+
+#------------------------------------------------------------------------------
+# MAP
+#------------------------------------------------------------------------------
+map:
+
+#------------------------------------------------------------------------------
+# SUN
+#------------------------------------------------------------------------------
+sun:
+
+#------------------------------------------------------------------------------
+# WeMo Switches
+#------------------------------------------------------------------------------
+wemo:
+  static:
+    - 192.168.1.91
+    - 192.168.1.92
+    - 192.168.1.95
+
+#------------------------------------------------------------------------------
+# InfluxDB
+#------------------------------------------------------------------------------
+
+influxdb:
+  host: 127.0.0.1
+  port: 8086
+  username: !secret influxdb_username  
+  password: !secret influxdb_password
+  database: !secret influxdb_database
+  default_measurement: state
+
+#------------------------------------------------------------------------------
+# Node-RED
+#------------------------------------------------------------------------------
+panel_iframe:
+ nodered:
+   title: 'Node-Red'
+   icon: 'mdi:shuffle-variant'
+   url: 'http://192.168.1.118:1880/'
+
+#------------------------------------------------------------------------------
+# MQTT
+#------------------------------------------------------------------------------
+mqtt:
+  broker: 192.168.1.118
+  port: 1883
+  client_id: homeassistant
+  username: !secret mosquitto_user
+  password: !secret mosquitto_pass
+
+apple_tv: !include apple_tv
+automation: !include automations.yaml
+device_tracker: !include trackers.yaml
+group: !include groups.yaml
+light: !include lights.yaml
+media_player: !include media_players.yaml
+plant: !include plants.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+switch: !include switches.yaml
+zone: !include zones.yaml

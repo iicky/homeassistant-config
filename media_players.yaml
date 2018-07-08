@@ -1,0 +1,56 @@
+#------------------------------------------------------------------------------
+# Onkyo Receiver
+#------------------------------------------------------------------------------
+  - platform: onkyo
+    host: 192.168.1.114
+    name: Receiver
+    zone2: False
+    zone3: False
+    sources:
+
+      # BD/DVD
+      dvd: 'Apple TV'
+
+      # CBL/SAT
+      video2: 'PS4'
+
+      # GAME
+      video3: 'GAME'
+
+      # PC
+      video6: 'PC'
+
+      # AUX
+      video4: 'Fire Stick'
+
+      # TUNER
+      tuner: 'Tuner'
+
+      # TV/CD
+      cd: 'TV-CD'
+
+      # PHONO
+      phono: 'Technics'
+
+      # NET
+      network: 'Net'
+
+      # USB
+      usb: 'USB' # USB
+
+      # EXTRA
+      fm: 'FM Tuner'
+      am: 'AM Tuner'
+      dlna: 'DLNA'
+      internet-radio: 'Internet Radio'
+
+      # Does Nothing
+      #----------------------------------
+      # universal-port: 'universal-port'
+      # multi-ch: 'multi-ch'
+      # xm: 'xm'
+      # sirius: 'sirius'
+      # video1: 'video1'
+      # bd-dvd: 'BD-DVD'
+      # tape1: 'tape1'
+      # tv-cd: 'TV-CD'

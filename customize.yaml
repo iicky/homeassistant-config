@@ -1,0 +1,21 @@
+device_tracker.google_maps_101608876393904256312:
+  friendly_name: Mickey's Google Maps
+sensor.christmas_cactus_moisture:
+  icon: hass:water
+sensor.christmas_cactus_light_intensity:
+  icon: hass:white-balance-sunny
+sensor.snake_plant_light_intensity:
+  icon: hass:white-balance-sunny
+sensor.christmas_cactus_battery:
+  friendly_name: Christmas Cactus Battery
+  icon: hass:battery
+sensor.snake_plant_battery:
+  icon: hass:battery
+sensor.snake_plant_conductivity:
+  icon: hass:emoticon-poop
+sensor.christmas_cactus_conductivity:
+  icon: hass:emoticon-poop
+plant.christmas_cactus:
+  friendly_name: Christmas Cactus
+plant.snake_plant:
+  friendly_name: Snake Plant

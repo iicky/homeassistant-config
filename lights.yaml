@@ -1,0 +1,24 @@
+  - platform: mqtt_json
+    name: 'Hoplite'
+    state_topic: 'wemos/hoplite'
+    command_topic: 'wemos/hoplite/set'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+
+  - platform: mqtt_json
+    name: 'Blue Jar'
+    state_topic: 'wemos/blue_jar'
+    command_topic: 'wemos/blue_jar/set'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
