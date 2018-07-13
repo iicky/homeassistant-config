@@ -50,7 +50,8 @@ SUBWAY_LINES = [
 STATE_PRIORITY = {
     'Delays': 1,
     'Service Change': 2,
-    'Planned Work': 3
+    'Planned Work': 3,
+    'Good Service': 4,
 }
 
 URL = 'http://web.mta.info/status/ServiceStatusSubway.xml'
@@ -85,7 +86,7 @@ class MTASubwaySensor(Entity):
         self._state = None
         self._direction_0_state = None
         self._direction_1_state = None
-        self._delay_description = None
+        self._delays_description = None
         self._service_change_description = None
         self._planned_work_description = None
 
@@ -122,7 +123,7 @@ class MTASubwaySensor(Entity):
         attrs = {}
         attrs['direction_0_state'] = self._direction_0_state
         attrs['direction_1_state'] = self._direction_1_state
-        attrs['delay_description'] = self._delay_description
+        attrs['delays_description'] = self._delays_description
         attrs['service_change_description'] = self._service_change_description
         attrs['planned_work_description'] = self._planned_work_description
 
@@ -136,7 +137,7 @@ class MTASubwaySensor(Entity):
         self._state = line_data['state']
         self._direction_0_state = line_data['direction_0_state']
         self._direction_1_state = line_data['direction_1_state']
-        self._delay_description = line_data['delay_description']
+        self._delays_description = line_data['delays_description']
         self._service_change_description = (
             line_data['service_change_description']
         )
@@ -172,7 +173,7 @@ def parse_subway_status(data):
             'state': None,
             'direction_0_state': None,
             'direction_1_state': None,
-            'delay_description': None,
+            'delays_description': None,
             'service_change_description': None,
             'planned_work_description': None
         }
@@ -198,9 +199,9 @@ def parse_subway_status(data):
         # Set line status to Good Service if no status
         if not hits:
             line_status[line].update({
-                'state': 'Good Status',
-                'direction_0_state': 'Good Status',
-                'direction_1_state': 'Good Status',
+                'state': 'Good Service',
+                'direction_0_state': 'Good Service',
+                'direction_1_state': 'Good Service',
             })
             continue
 
@@ -229,7 +230,10 @@ def parse_subway_status(data):
         )
 
         # Determine state for each direction on the line
-        dir_states = {}
+        dir_states = {
+            '0': ['Good Service'],
+            '1': ['Good Service'],
+        }
         for sit in situations:
 
             # Find affected line directions
@@ -241,10 +245,7 @@ def parse_subway_status(data):
 
             # Add states to line direction
             for dct in directions:
-                if not dct in dir_states:
-                    dir_states[dct] = [sit.ReasonName.text]
-                else:
-                    dir_states[dct].append(sit.ReasonName.text)
+                dir_states[dct].append(sit.ReasonName.text)
 
         # Set the direction states using STATE_PRIORITY
         for dct in dir_states:
