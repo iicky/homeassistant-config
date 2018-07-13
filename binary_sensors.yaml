@@ -1,0 +1,9 @@
+#------------------------------------------------------------------------------
+# ESP-01 Living Room TV Sensor
+#------------------------------------------------------------------------------
+
+  - platform: mqtt
+    name: Living Room TV Power
+    state_topic: "esp-01/living_room_tv"
+    payload_on: "ON"
+    payload_off: "OFF"
