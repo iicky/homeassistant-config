@@ -1,7 +1,8 @@
 default_view:
   name: Home
   view: yes
-  entities:    
+  entities:
+    - group.subway    
     - group.livingroom
     - group.bedroom
     - group.office
@@ -9,6 +10,14 @@ default_view:
     - group.weather
     - group.trackers
     - group.testing
+
+subway:
+  name: Subway
+  entities:
+    - sensor.mta_subway_4
+    - sensor.mta_subway_5
+    - sensor.mta_subway_6
+    - sensor.mta_subway_q
                      
 livingroom:
   name: Living Room
