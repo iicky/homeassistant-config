@@ -16,8 +16,8 @@
             command_off: "JgBYAAABJ5IUNhMRFBEUERMRFBEUEBQ2FBAUNhQ1FBETERQ2EzYUEBQ2FBAUERQRExEUERQREzYUERM2FDUUNRQ2FDUUNRQRFAAFaAABJ0gUAAxHAAEnSBQADQU="
 
         # LG TV
-        tv_main:
-            friendly_name: "Living Room TV"
+        living_room_tv_ir:
+            friendly_name: "Living Room TV IR"
             command_on: "JgBQAAABKZIUEhMSEzYUERQRFBITEhMSEzYUNhQRFDYTNhQ2FDYTNhQRFBITEhM2FBEUERQRFBEUNhQ0FTYUEhM2FDYUNRQ2FAAFJQABKUkTAA0FAAAAAAAAAAA="
             command_off: "JgBQAAABKZIUEhMSEzYUERQRFBITEhMSEzYUNhQRFDYTNhQ2FDYTNhQRFBITEhM2FBEUERQRFBEUNhQ0FTYUEhM2FDYUNRQ2FAAFJQABKUkTAA0FAAAAAAAAAAA="
 
@@ -76,3 +76,22 @@
     optimistic: false
     qos: 0
     retain: false
+
+
+#------------------------------------------------------------------------------
+# Template Switches
+#------------------------------------------------------------------------------
+
+  - platform: template
+    switches:
+      living_room_tv:
+        friendly_name: "Living Room TV"
+        value_template: "{{ states('binary_sensor.living_room_tv_power') }}"
+        turn_on:
+          service: switch.turn_on
+          data:
+            entity_id: switch.living_room_tv_ir
+        turn_off:
+          service: switch.turn_off
+          data:
+            entity_id: switch.living_room_tv_ir
