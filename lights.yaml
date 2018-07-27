@@ -10,7 +10,6 @@
     optimistic: false
     qos: 0
 
-
   - platform: mqtt_json
     name: 'Blue Jar'
     state_topic: 'wemos/blue_jar'
@@ -18,6 +17,16 @@
     retain: true
     effect: true
     effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+  - platform: mqtt_json
+    name: 'Vines'
+    state_topic: 'wemos/vines'
+    command_topic: 'wemos/vines/set'
+    retain: true
     brightness: true
     rgb: true
     optimistic: false

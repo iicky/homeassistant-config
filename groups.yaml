@@ -29,6 +29,7 @@ moodlights:
     - switch.star_light
     - light.hoplite
     - light.blue_jar
+    - light.vines
                      
 livingroom:
   name: Living Room
