@@ -49,9 +49,27 @@
 #------------------------------------------------------------------------------
 
   - platform: mqtt
+    name: "Lite Brite"
+    state_topic: "sonoff/sonoff_001/stat"
+    command_topic: "sonoff/sonoff_001"
+    qos: 0
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
     name: "Blacksmith"
     state_topic: "sonoff/sonoff_002/stat"
     command_topic: "sonoff/sonoff_002"
+    qos: 0
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Lava Lamp"
+    state_topic: "sonoff/sonoff_003/stat"
+    command_topic: "sonoff/sonoff_003"
     qos: 0
     payload_on: "on"
     payload_off: "off"
