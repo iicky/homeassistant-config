@@ -107,7 +107,3 @@
       - temperature
       - conductivity
       - battery
-
-  - platform: london_underground
-    line:
-      - Bakerloo
