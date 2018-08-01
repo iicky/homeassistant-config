@@ -7,7 +7,6 @@ default_view:
     - group.livingroom
     - group.bedroom
     - group.office
-    - group.plants
     - group.weather
     - group.trackers
     - group.testing
@@ -53,19 +52,33 @@ office:
 
 plants:
   name: Plants
+  icon: mdi:flower
+  view: yes
   entities:
     - plant.christmas_cactus
+    - plant.snake_plant
+    - plant.echeveria
+    - plant.african_violet
     - sensor.christmas_cactus_battery
     - sensor.christmas_cactus_conductivity
     - sensor.christmas_cactus_light_intensity
     - sensor.christmas_cactus_moisture
     - sensor.christmas_cactus_temperature
-    - plant.snake_plant
     - sensor.snake_plant_battery
     - sensor.snake_plant_conductivity
     - sensor.snake_plant_light_intensity
     - sensor.snake_plant_moisture
     - sensor.snake_plant_temperature
+    - sensor.echeveria_battery
+    - sensor.echeveria_conductivity
+    - sensor.echeveria_light_intensity
+    - sensor.echeveria_moisture
+    - sensor.echeveria_temperature
+    - sensor.african_violet_battery
+    - sensor.african_violet_conductivity
+    - sensor.african_violet_light_intensity
+    - sensor.african_violet_moisture
+    - sensor.african_violet_temperature
 
 trackers:
   name: Trackers
