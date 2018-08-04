@@ -10,3 +10,15 @@
     friendly_name: Mickey Google Maps
     username: !secret tracker_google_maps_email
     password: !secret tracker_google_maps_password
+
+  - platform: owntracks
+    max_gps_accuracy: 100
+    waypoints: True
+    mqtt_topic: "owntracks/#"
+    events_only: True
+    waypoint_whitelist:
+      - mickey
+    region_mapping:
+      MG1: MG1
+      Home: Home
+      Turner: Turner
