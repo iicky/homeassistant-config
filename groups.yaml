@@ -86,6 +86,7 @@ trackers:
     - device_tracker.maggies_iphone_8
     - device_tracker.mickeys_iphone_x
     - device_tracker.google_maps_101608876393904256312
+    - device_tracker.mosquitto_mickeyowntracks
 
 weather:
   name: Weather
