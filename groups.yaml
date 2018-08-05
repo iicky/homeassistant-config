@@ -51,7 +51,7 @@ office:
   entities:
     - switch.soldering_iron
 
-ktichen:
+kitchen:
   name: Kitchen
   entities:
     - switch.grow_light
