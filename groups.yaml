@@ -7,6 +7,7 @@ default_view:
     - group.livingroom
     - group.bedroom
     - group.office
+    - group.kitchen
     - group.weather
     - group.trackers
     - group.testing
@@ -49,6 +50,11 @@ office:
   name: Office
   entities:
     - switch.soldering_iron
+
+ktichen:
+  name: Kitchen
+  entities:
+    - switch.grow_light
 
 plants:
   name: Plants
