@@ -58,7 +58,7 @@ plants:
     - plant.christmas_cactus
     - plant.snake_plant
     - plant.echeveria
-    #- plant.african_violet
+    - plant.african_violet
     - sensor.christmas_cactus_battery
     - sensor.christmas_cactus_conductivity
     - sensor.christmas_cactus_light_intensity
@@ -74,11 +74,11 @@ plants:
     - sensor.echeveria_light_intensity
     - sensor.echeveria_moisture
     - sensor.echeveria_temperature
-    #- sensor.african_violet_battery
-    #- sensor.african_violet_conductivity
-    #- sensor.african_violet_light_intensity
-    #- sensor.african_violet_moisture
-    #- sensor.african_violet_temperature
+    - sensor.african_violet_battery
+    - sensor.african_violet_conductivity
+    - sensor.african_violet_light_intensity
+    - sensor.african_violet_moisture
+    - sensor.african_violet_temperature
 
 trackers:
   name: Trackers
