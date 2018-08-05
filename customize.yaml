@@ -19,3 +19,7 @@ plant.christmas_cactus:
   friendly_name: Christmas Cactus
 plant.snake_plant:
   friendly_name: Snake Plant
+plant.african_violet:
+  friendly_name: African Violet
+plant.echeveria:
+  friendly_name: Echeveria
