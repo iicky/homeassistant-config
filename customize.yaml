@@ -23,3 +23,5 @@ plant.african_violet:
   friendly_name: African Violet
 plant.echeveria:
   friendly_name: Echeveria
+device_tracker.mosquitto_mickeyowntracks:
+  friendly_name: Mickey's Owntracks
