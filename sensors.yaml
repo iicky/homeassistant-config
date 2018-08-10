@@ -132,7 +132,7 @@
     unit_of_measurement: '°C'
     value_template: "{{ value_json.temperature }}"
   - platform: mqtt
-    name: "african_violet_light"
+    name: "african_violet_light_intensity"
     state_topic: "miflora/african_violet"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.light }}"
