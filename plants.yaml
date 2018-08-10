@@ -4,7 +4,7 @@
       battery: sensor.christmas_cactus_battery
       temperature: sensor.christmas_cactus_temperature
       conductivity: sensor.christmas_cactus_conductivity
-      brightness: sensor.christmas_cactus_brightness
+      brightness: sensor.christmas_cactus_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 20
@@ -22,7 +22,7 @@
       battery: sensor.snake_plant_battery
       temperature: sensor.snake_plant_temperature
       conductivity: sensor.snake_plant_conductivity
-      brightness: sensor.snake_plant_brightness
+      brightness: sensor.snake_plant_light_intensity
     min_moisture: 7
     max_moisture: 50
     min_battery: 20
@@ -40,7 +40,7 @@
       battery: sensor.echeveria_battery
       temperature: sensor.echeveria_temperature
       conductivity: sensor.echeveria_conductivity
-      brightness: sensor.echeveria_brightness
+      brightness: sensor.echeveria_light_intensity
     min_moisture: 7
     max_moisture: 50
     min_battery: 20
@@ -58,7 +58,7 @@
       battery: sensor.african_violet_battery
       temperature: sensor.african_violet_temperature
       conductivity: sensor.african_violet_conductivity
-      brightness: sensor.african_violet_brightness
+      brightness: sensor.african_violet_light_intensity
     min_moisture: 15
     max_moisture: 60
     min_battery: 20
