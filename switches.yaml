@@ -77,11 +77,11 @@
 
   - platform: mqtt
     name: "Soldering Iron"
-    state_topic: "sonoff/sonoff_004/stat"
-    command_topic: "sonoff/sonoff_004"
+    state_topic: "sonoff/sonoff_004/power/state"
+    command_topic: "sonoff/sonoff_004/gpio/12"
     qos: 0
-    payload_on: "on"
-    payload_off: "off"
+    payload_on: 1
+    payload_off: 0
     retain: true
 
   - platform: mqtt
