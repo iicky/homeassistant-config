@@ -30,19 +30,19 @@
 #------------------------------------------------------------------------------
 # Tuya Switches
 #------------------------------------------------------------------------------
-  - platform: tuya
-    name: Bookcase
-    host: 192.168.1.93
-    local_key: 2d209fb34549a518
-    device_id: 03200135dc4f2221cc51
-    id: 1
-
-  - platform: tuya
-    name: Petcube
-    host: 192.168.1.94
-    local_key: 55864f722655e9a6
-    device_id: 03200135dc4f2222074d
-    id: 1
+#  - platform: tuya
+#    name: Bookcase
+#    host: 192.168.1.93
+#    local_key: 2d209fb34549a518
+#    device_id: 03200135dc4f2221cc51
+#    id: 1
+#
+#  - platform: tuya
+#    name: Petcube
+#    host: 192.168.1.94
+#    local_key: 55864f722655e9a6
+#    device_id: 03200135dc4f2222074d
+#    id: 1
 
 #------------------------------------------------------------------------------
 # MQTT Switches
@@ -82,6 +82,33 @@
     qos: 0
     payload_on: "on"
     payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Petcube"
+    state_topic: "sonoff/sonoff_005/power/state"
+    command_topic: "sonoff/sonoff_005/gpio/12"
+    qos: 0
+    payload_on: 1
+    payload_off: 0
+    retain: true
+
+  - platform: mqtt
+    name: "Bookcase"
+    state_topic: "sonoff/sonoff_006/power/state"
+    command_topic: "sonoff/sonoff_006/gpio/12"
+    qos: 0
+    payload_on: 1
+    payload_off: 0
+    retain: true
+
+  - platform: mqtt
+    name: "Headboard"
+    state_topic: "sonoff/sonoff_007/power/state"
+    command_topic: "sonoff/sonoff_007/gpio/12"
+    qos: 0
+    payload_on: 1
+    payload_off: 0
     retain: true
 
   - platform: mqtt

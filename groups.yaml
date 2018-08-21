@@ -45,6 +45,7 @@ bedroom:
   entities:
     - switch.dohm
     - switch.blacksmith
+    - switch.headboard
 
 office:
   name: Office
