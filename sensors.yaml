@@ -159,10 +159,12 @@
  # Xiaomi Door Sensor
  #--------------------------------------------
   - platform: "mqtt"
-    name: "front_door"
+    name: "Front Door"
     state_topic: "zigbee2mqtt/front_door_sensor"
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:door"
     value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
     json_attributes: 
       - "linkquality"
+      - "battery"
+      - "voltage"
