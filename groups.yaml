@@ -34,6 +34,7 @@ moodlights:
 livingroom:
   name: Living Room
   entities:    
+    - sensor.front_door
     - switch.petcube
     - switch.living_room_tv
     - switch.ac_main

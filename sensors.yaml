@@ -151,3 +151,18 @@
     state_topic: "miflora/african_violet"
     unit_of_measurement: '%'
     value_template: "{{ value_json.battery }}"
+
+#------------------------------------------------------------------------------
+# ZIGBEE2MQTT
+#------------------------------------------------------------------------------
+
+ # Xiaomi Door Sensor
+ #--------------------------------------------
+  - platform: "mqtt"
+    name: "front_door"
+    state_topic: "zigbee2mqtt/front_door_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:door"
+    value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
+    json_attributes: 
+      - "linkquality"
