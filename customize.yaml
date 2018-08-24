@@ -25,3 +25,5 @@ plant.echeveria:
   friendly_name: Echeveria
 device_tracker.mosquitto_mickeyowntracks:
   friendly_name: Mickey's Owntracks
+sensor.front_door:
+  friendly_name: Front Door
