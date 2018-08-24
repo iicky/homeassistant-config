@@ -191,3 +191,26 @@
       - "linkquality"
       - "battery"
       - "voltage"
+
+ # Xiaomi Motion Sensor - Living Room
+ #--------------------------------------------
+  - platform: "mqtt"
+    name: "Living Room Motion"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    json_attributes:
+      - "linkquality"
+      - "battery"
+      - "voltage"
+  - platform: "mqtt"
+    name: "Living Room Illuminance"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes:
+      - "linkquality"
+      - "battery"
+      - "voltage"
