@@ -186,6 +186,7 @@
     state_topic: "zigbee2mqtt/bedroom_motion_sensor"
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
     json_attributes:
       - "linkquality"
@@ -209,6 +210,7 @@
     state_topic: "zigbee2mqtt/living_room_motion_sensor"
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
     json_attributes:
       - "linkquality"
