@@ -216,3 +216,20 @@
       - "linkquality"
       - "battery"
       - "voltage"
+
+ # Xiaomi Magic Cube
+ #--------------------------------------------
+  - platform: "mqtt"
+    name: "Magic Cube"
+    state_topic: "zigbee2mqtt/mi_cube"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:cube-outline"
+    value_template: "{{ value_json.action }}"
+    json_attributes:
+      - "linkquality"
+      - "battery"
+      - "voltage"
+      - "side"
+      - "from_side"
+      - "to_side"
+      - "angle"
