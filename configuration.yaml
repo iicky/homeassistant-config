@@ -103,13 +103,13 @@ panel_iframe:
  nodered:
    title: 'Node-Red'
    icon: 'mdi:shuffle-variant'
-   url: 'http://192.168.1.118:1880/'
+   url: 'http://192.168.1.222:1880/'
 
 #------------------------------------------------------------------------------
 # MQTT
 #------------------------------------------------------------------------------
 mqtt:
-  broker: 192.168.1.118
+  broker: 192.168.1.222
   port: 1883
   client_id: homeassistant
   username: !secret mosquitto_user
