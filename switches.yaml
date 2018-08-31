@@ -50,11 +50,11 @@
 
   - platform: mqtt
     name: "Lite Brite"
-    state_topic: "sonoff/sonoff_001/stat"
-    command_topic: "sonoff/sonoff_001"
+    state_topic: "sonoff/sonoff_001/power/state"
+    command_topic: "sonoff/sonoff_001/gpio/12"
     qos: 0
-    payload_on: "on"
-    payload_off: "off"
+    payload_on: 1
+    payload_off: 0
     retain: true
 
   - platform: mqtt
@@ -68,11 +68,11 @@
 
   - platform: mqtt
     name: "Lava Lamp"
-    state_topic: "sonoff/sonoff_003/stat"
-    command_topic: "sonoff/sonoff_003"
+    state_topic: "sonoff/sonoff_003/power/state"
+    command_topic: "sonoff/sonoff_003/gpio/12"
     qos: 0
-    payload_on: "on"
-    payload_off: "off"
+    payload_on: 1
+    payload_off: 0
     retain: true
 
   - platform: mqtt
