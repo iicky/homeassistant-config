@@ -22,6 +22,9 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+  auth_providers:
+   - type: legacy_api_password
+
 #------------------------------------------------------------------------------
 # FRONTEND
 #------------------------------------------------------------------------------
