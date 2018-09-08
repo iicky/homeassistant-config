@@ -34,22 +34,40 @@
     max_brightness: 60000
     check_days: 3
 
-  echeveria:
+  #echeveria:
+  #  sensors:
+  #    moisture: sensor.echeveria_moisture
+  #    battery: sensor.echeveria_battery
+  #    temperature: sensor.echeveria_temperature
+  #    conductivity: sensor.echeveria_conductivity
+  #    brightness: sensor.echeveria_light_intensity
+  #  min_moisture: 7
+  #  max_moisture: 50
+  #  min_battery: 20
+  #  min_conductivity: 300
+  #  max_conductivity: 1000
+  #  min_temperature: 41
+  #  max_temperature: 95
+  #  min_brightness: 4000
+  #  max_brightness: 75000
+  #  check_days: 3
+
+  golden_pothos:
     sensors:
-      moisture: sensor.echeveria_moisture
-      battery: sensor.echeveria_battery
-      temperature: sensor.echeveria_temperature
-      conductivity: sensor.echeveria_conductivity
-      brightness: sensor.echeveria_light_intensity
-    min_moisture: 7
-    max_moisture: 50
+      moisture: sensor.golden_pothos_moisture
+      battery: sensor.golden_pothos_battery
+      temperature: sensor.golden_pothos_temperature
+      conductivity: sensor.golden_pothos_conductivity
+      brightness: sensor.golden_pothos_light_intensity
+    min_moisture: 15
+    max_moisture: 60
     min_battery: 20
-    min_conductivity: 300
-    max_conductivity: 1000
-    min_temperature: 41
-    max_temperature: 95
-    min_brightness: 4000
-    max_brightness: 75000
+    min_conductivity: 350
+    max_conductivity: 2000
+    min_temperature: 50
+    max_temperature: 89
+    min_brightness: 500
+    max_brightness: 12000
     check_days: 3
 
   african_violet:
