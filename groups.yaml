@@ -65,7 +65,7 @@ plants:
   entities:
     - plant.christmas_cactus
     - plant.snake_plant
-    - plant.echeveria
+    - plant.golden_pothos
     - plant.african_violet
     - sensor.christmas_cactus_battery
     - sensor.christmas_cactus_conductivity
@@ -77,11 +77,11 @@ plants:
     - sensor.snake_plant_light_intensity
     - sensor.snake_plant_moisture
     - sensor.snake_plant_temperature
-    - sensor.echeveria_battery
-    - sensor.echeveria_conductivity
-    - sensor.echeveria_light_intensity
-    - sensor.echeveria_moisture
-    - sensor.echeveria_temperature
+    - sensor.golden_pothos_battery
+    - sensor.golden_pothos_conductivity
+    - sensor.golden_pothos_light_intensity
+    - sensor.golden_pothos_moisture
+    - sensor.golden_pothos_temperature
     - sensor.african_violet_battery
     - sensor.african_violet_conductivity
     - sensor.african_violet_light_intensity
