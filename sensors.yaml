@@ -301,6 +301,30 @@
       - "battery"
       - "voltage"
 
+ # Xiaomi Motion Sensor - Office
+ #--------------------------------------------
+  - platform: "mqtt"
+    name: "Office Motion"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    json_attributes:
+      - "linkquality"
+      - "battery"
+      - "voltage"
+  - platform: "mqtt"
+    name: "Office Illuminance"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes:
+      - "linkquality"
+      - "battery"
+      - "voltage"
+
  # Xiaomi Magic Cube
  #--------------------------------------------
   - platform: "mqtt"
