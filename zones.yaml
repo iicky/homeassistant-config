@@ -4,9 +4,9 @@
     radius: 25
     icon: mdi:home
 
-  - name: MG1
-    latitude: !secret zones_mg1_latitude
-    longitude: !secret zones_mg1_longitude
+  - name: Viacom
+    latitude: !secret zones_viacom_latitude
+    longitude: !secret zones_viacom_longitude
     radius: 50
     icon: mdi:briefcase
 
