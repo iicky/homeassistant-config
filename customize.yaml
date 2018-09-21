@@ -27,3 +27,5 @@ device_tracker.mosquitto_mickeyowntracks:
   friendly_name: Mickey's Owntracks
 sensor.front_door:
   friendly_name: Front Door
+plant.golden_pothos:
+  friendly_name: Golden Pothos
