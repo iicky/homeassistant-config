@@ -90,6 +90,8 @@ plants:
 
 trackers:
   name: Trackers
+  icon: mdi:radar
+  view: yes
   entities:
     - device_tracker.maggies_iphone_8
     - device_tracker.mickeys_iphone_x
