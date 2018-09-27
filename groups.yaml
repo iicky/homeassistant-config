@@ -1,5 +1,6 @@
 default_view:
   name: Home
+  icon: mdi:home
   view: yes
   entities:
     - group.subway
@@ -97,6 +98,11 @@ trackers:
     - device_tracker.mickeys_iphone_x
     - device_tracker.google_maps_101608876393904256312
     - device_tracker.mosquitto_mickeyowntracks
+    - sensor.maggie_iphone_overall_presence
+    - sensor.mickey_iphone_overall_presence
+    - sensor.bedroom_motion
+    - sensor.living_room_motion
+    - sensor.office_motion
 
 weather:
   name: Weather
@@ -106,8 +112,3 @@ weather:
     - sensor.dark_sky_nearest_storm_distance
     - sensor.dark_sky_summary
     - sensor.yr_symbol
-
-testing:
-  name: Testing
-  entities:
-    - switch.rgb_led
