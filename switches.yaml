@@ -112,6 +112,15 @@
     retain: true
 
   - platform: mqtt
+    name: "Dohm"
+    state_topic: "sonoff/sonoff_008/power/state"
+    command_topic: "sonoff/sonoff_008/gpio/12"
+    qos: 0
+    payload_on: 1
+    payload_off: 0
+    retain: true
+
+  - platform: mqtt
     name: "RGB Led"
     state_topic: "testing/rgbled"
     command_topic: "testing/rgbled"
