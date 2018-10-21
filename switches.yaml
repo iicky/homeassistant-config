@@ -131,6 +131,17 @@
     qos: 0
     retain: false
 
+  - platform: mqtt
+    name: "Candle 2"
+    state_topic: "testing/candle_2/state"
+    command_topic: "testing/candle_2"
+    #availability_topic: "home/bedroom/switch1/available"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true
+
 
 #------------------------------------------------------------------------------
 # Template Switches
