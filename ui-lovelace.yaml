@@ -51,6 +51,7 @@ views:
         show_header_toggle: true
         entities:
           - switch.soldering_iron
+          - switch.office_fan
       - type: entities
         title: Kitchen
         show_header_toggle: true
