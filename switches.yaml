@@ -52,6 +52,7 @@
     name: "Lite Brite"
     state_topic: "sonoff/sonoff_001/power/state"
     command_topic: "sonoff/sonoff_001/gpio/12"
+    availability_topic: "sonoff/sonoff_001/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -61,6 +62,7 @@
     name: "Blacksmith"
     state_topic: "sonoff/sonoff_002/power/state"
     command_topic: "sonoff/sonoff_002/gpio/12"
+    availability_topic: "sonoff/sonoff_002/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -70,6 +72,7 @@
     name: "Lava Lamp"
     state_topic: "sonoff/sonoff_003/power/state"
     command_topic: "sonoff/sonoff_003/gpio/12"
+    availability_topic: "sonoff/sonoff_003/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -79,6 +82,7 @@
     name: "Soldering Iron"
     state_topic: "sonoff/sonoff_004/power/state"
     command_topic: "sonoff/sonoff_004/gpio/12"
+    availability_topic: "sonoff/sonoff_004/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -88,6 +92,7 @@
     name: "Petcube"
     state_topic: "sonoff/sonoff_005/power/state"
     command_topic: "sonoff/sonoff_005/gpio/12"
+    availability_topic: "sonoff/sonoff_005/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -97,6 +102,7 @@
     name: "Bookcase"
     state_topic: "sonoff/sonoff_006/power/state"
     command_topic: "sonoff/sonoff_006/gpio/12"
+    availability_topic: "sonoff/sonoff_006/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -106,6 +112,7 @@
     name: "Headboard"
     state_topic: "sonoff/sonoff_007/power/state"
     command_topic: "sonoff/sonoff_007/gpio/12"
+    availability_topic: "sonoff/sonoff_007/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
@@ -115,6 +122,7 @@
     name: "Dohm"
     state_topic: "sonoff/sonoff_008/power/state"
     command_topic: "sonoff/sonoff_008/gpio/12"
+    availability_topic: "sonoff/sonoff_008/status/LWT"
     qos: 0
     payload_on: 1
     payload_off: 0
