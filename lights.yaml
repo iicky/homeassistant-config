@@ -31,3 +31,15 @@
     rgb: true
     optimistic: false
     qos: 0
+
+  - platform: mqtt_json
+    name: 'Neopixel'
+    state_topic: 'wemos/neopixel'
+    command_topic: 'wemos/neopixel/set'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
