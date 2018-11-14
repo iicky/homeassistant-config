@@ -137,9 +137,9 @@
     retain: true
 
   - platform: mqtt
-    name: "Office Fan"
-    state_topic: "zigbee2mqtt/office_fan"
-    command_topic: "zigbee2mqtt/office_fan/set"
+    name: "Living Room Grow Light"
+    state_topic: "zigbee2mqtt/living_room_grow_light"
+    command_topic: "zigbee2mqtt/living_room_grow_light/set"
     availability_topic: "zigbee2mqtt/bridge/state"
     payload_off: "OFF"
     payload_on: "ON"
