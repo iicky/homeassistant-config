@@ -31,6 +31,6 @@
     waypoint_whitelist:
       - mickey
     region_mapping:
-      MG1: MG1
+      Viacom: Viacom
       Home: Home
       Turner: Turner
