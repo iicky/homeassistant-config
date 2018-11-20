@@ -360,6 +360,12 @@
     unit_of_measurement: '%'
     name: 'Maggie iPhone Living Room Presence'
 
+  - platform: mqtt
+    state_topic: 'presence/living_room/D0:33:11:0C:84:1B'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'Junie iPhone Living Room Presence'
+
  # Bedroom
  #--------------------------------------------
   - platform: mqtt
@@ -374,6 +380,12 @@
     unit_of_measurement: '%'
     name: 'Maggie iPhone Bedroom Presence'
 
+  - platform: mqtt
+    state_topic: 'presence/bedroom/D0:33:11:0C:84:1B'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'Junie iPhone Bedroom Presence'
+
  # Office          
  #--------------------------------------------
   - platform: mqtt
@@ -387,6 +399,12 @@
     value_template: '{{ value_json.confidence }}'
     unit_of_measurement: '%'
     name: 'Maggie iPhone Office Presence'
+
+  - platform: mqtt
+    state_topic: 'presence/office/D0:33:11:0C:84:1B'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'Junie iPhone Office Presence'
 
  # Overall          
  #--------------------------------------------
@@ -409,6 +427,14 @@
       - sensor.maggie_iphone_bedroom_presence
       - sensor.maggie_iphone_office_presence     
 
+  - platform: min_max
+    name: "Junie iPhone Overall Presence"
+    type: mean
+    round_digits: 0
+    entity_ids:
+      - sensor.junie_iphone_living_room_presence
+      - sensor.junie_iphone_bedroom_presence
+      - sensor.junie_iphone_office_presence
 
 #------------------------------------------------------------------------------
 # Speedtest
