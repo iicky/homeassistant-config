@@ -93,7 +93,8 @@ views:
         entity: media_player.receiver
       - type: media-control
         entity: media_player.apple_tv
-
+      - type: media-control
+        entity: media_player.living_room
 #------------------------------------------------------------------------------
 # Trackers
 #------------------------------------------------------------------------------
