@@ -406,7 +406,7 @@
     unit_of_measurement: '%'
     name: 'Junie iPhone Office Presence'
 
- # Overall          
+ # Overall Home         
  #--------------------------------------------
 
   - platform: min_max
@@ -435,6 +435,14 @@
       - sensor.junie_iphone_living_room_presence
       - sensor.junie_iphone_bedroom_presence
       - sensor.junie_iphone_office_presence
+
+ # Work         
+ #--------------------------------------------
+  - platform: mqtt
+    state_topic: 'presence/viacom/D8:8F:76:D2:23:75'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'Mickey iPhone Viacom Presence'
 
 #------------------------------------------------------------------------------
 # Speedtest
