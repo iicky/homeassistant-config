@@ -25,7 +25,7 @@ homeassistant:
   auth_providers:
    - type: homeassistant
    - type: trusted_networks 
-   #- type: legacy_api_password
+  # - type: legacy_api_password
 
 #------------------------------------------------------------------------------
 # FRONTEND
