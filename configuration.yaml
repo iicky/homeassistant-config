@@ -145,7 +145,7 @@ mqtt:
 apple_tv: !include apple_tv.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensors.yaml
-device_tracker: !include trackers.yaml
+#device_tracker: !include trackers.yaml
 group: !include groups.yaml
 light: !include lights.yaml
 media_player: !include media_players.yaml
