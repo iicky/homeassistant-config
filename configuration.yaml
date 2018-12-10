@@ -100,7 +100,7 @@ sonos:
 # WeMo Switches
 #------------------------------------------------------------------------------
 wemo:
-  static:
+  #static:
 
     # Grow Light
     - 192.168.1.91
@@ -109,7 +109,7 @@ wemo:
     - 192.168.1.92
 
     # Unused
-    - 192.168.1.95
+    #- 192.168.1.95
 
 #------------------------------------------------------------------------------
 # InfluxDB
@@ -145,7 +145,7 @@ mqtt:
 apple_tv: !include apple_tv.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensors.yaml
-#device_tracker: !include trackers.yaml
+device_tracker: !include trackers.yaml
 group: !include groups.yaml
 light: !include lights.yaml
 media_player: !include media_players.yaml
