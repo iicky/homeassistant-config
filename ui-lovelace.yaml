@@ -40,7 +40,7 @@ views:
           - switch.petcube
           - switch.living_room_tv
           - switch.ac_main
-          - switch.living_room_grow_light
+          - switch.christmas_tree
       - type: entities
         title: Bedroom
         show_header_toggle: true
@@ -109,6 +109,7 @@ views:
           - device_tracker.mosquitto_mickeyowntracks
           - sensor.maggie_iphone_overall_presence
           - sensor.mickey_iphone_overall_presence
+          - sensor.mickey_iphone_viacom_presence
           - sensor.bedroom_motion
           - sensor.living_room_motion
           - sensor.office_motion

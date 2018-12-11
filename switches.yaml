@@ -137,7 +137,7 @@
     retain: true
 
   - platform: mqtt
-    name: "Living Room Grow Light"
+    name: "Christmas Tree"
     state_topic: "zigbee2mqtt/living_room_grow_light"
     command_topic: "zigbee2mqtt/living_room_grow_light/set"
     availability_topic: "zigbee2mqtt/bridge/state"
