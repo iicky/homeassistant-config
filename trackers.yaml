@@ -14,23 +14,23 @@
 # GOOGLE MAPS
 #------------------------------------------------------------------------------
 
-  - platform: google_maps
-    friendly_name: Mickey Google Maps
-    username: !secret tracker_google_maps_email
-    password: !secret tracker_google_maps_password
+#  - platform: google_maps
+#    friendly_name: Mickey Google Maps
+#    username: !secret tracker_google_maps_email
+#    password: !secret tracker_google_maps_password
 
 #------------------------------------------------------------------------------
 # OWNTRACKS
 #------------------------------------------------------------------------------
 
-  - platform: owntracks
-    max_gps_accuracy: 100
-    waypoints: True
-    mqtt_topic: "owntracks/#"
-    events_only: True
-    waypoint_whitelist:
-      - mickey
-    region_mapping:
-      Viacom: Viacom
-      Home: Home
-      Turner: Turner
+#  - platform: owntracks
+#    max_gps_accuracy: 100
+#    waypoints: True
+#    mqtt_topic: "owntracks/#"
+#    events_only: True
+#    waypoint_whitelist:
+#      - mickey
+#    region_mapping:
+#      Viacom: Viacom
+#      Home: Home
+#      Turner: Turner
