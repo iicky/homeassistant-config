@@ -137,6 +137,39 @@
     retain: true
 
   - platform: mqtt
+    name: "Star Bright"
+    state_topic: "sonoff_009/switch/gpio12/state"
+    command_topic: "sonoff_009/switch/gpio12/command"
+    availability_topic: "sonoff_009/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - platform: mqtt
+    name: "Star Light"
+    state_topic: "sonoff_010/switch/gpio12/state"
+    command_topic: "sonoff_010/switch/gpio12/command"
+    availability_topic: "sonoff_010/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - platform: mqtt
+    name: "Kitchen Grow Light"
+    state_topic: "sonoff_011/switch/gpio12/state"
+    command_topic: "sonoff_011/switch/gpio12/command"
+    availability_topic: "sonoff_011/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - platform: mqtt
     name: "Christmas Tree"
     state_topic: "zigbee2mqtt/living_room_grow_light"
     command_topic: "zigbee2mqtt/living_room_grow_light/set"

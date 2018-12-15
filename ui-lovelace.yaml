@@ -23,6 +23,7 @@ views:
           - switch.lava_lamp
           - switch.lite_brite
           - switch.star_light
+          - switch.star_bright
           - light.hoplite
           - light.blue_jar
           - light.vines
@@ -57,7 +58,7 @@ views:
         title: Kitchen
         show_header_toggle: true
         entities:
-          - switch.grow_light
+          - switch.kitchen_grow_light
       - type: entities
         title: Weather
         show_header_toggle: true
