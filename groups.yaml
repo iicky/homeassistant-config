@@ -28,6 +28,7 @@ moodlights:
     - switch.lava_lamp
     - switch.lite_brite
     - switch.star_light
+    - switch.star_bright
     - light.hoplite
     - light.blue_jar
     - light.vines
