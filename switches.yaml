@@ -50,96 +50,96 @@
 
   - platform: mqtt
     name: "Lite Brite"
-    state_topic: "sonoff/sonoff_001/power/state"
-    command_topic: "sonoff/sonoff_001/gpio/12"
-    availability_topic: "sonoff/sonoff_001/status/LWT"
+    state_topic: "sonoff_001/switch/power/state"
+    command_topic: "sonoff_001/switch/power/command"
+    availability_topic: "sonoff_001/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Blacksmith"
-    state_topic: "sonoff/sonoff_002/power/state"
-    command_topic: "sonoff/sonoff_002/gpio/12"
-    availability_topic: "sonoff/sonoff_002/status/LWT"
+    state_topic: "sonoff_002/switch/power/state"
+    command_topic: "sonoff_002/switch/power/command"
+    availability_topic: "sonoff_002/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Lava Lamp"
-    state_topic: "sonoff/sonoff_003/power/state"
-    command_topic: "sonoff/sonoff_003/gpio/12"
-    availability_topic: "sonoff/sonoff_003/status/LWT"
+    state_topic: "sonoff_003/switch/power/state"
+    command_topic: "sonoff_003/switch/power/command"
+    availability_topic: "sonoff_003/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Soldering Iron"
-    state_topic: "sonoff/sonoff_004/power/state"
-    command_topic: "sonoff/sonoff_004/gpio/12"
-    availability_topic: "sonoff/sonoff_004/status/LWT"
+    state_topic: "sonoff_004/switch/power/state"
+    command_topic: "sonoff_004/switch/power/command"
+    availability_topic: "sonoff_004/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Petcube"
-    state_topic: "sonoff/sonoff_005/power/state"
-    command_topic: "sonoff/sonoff_005/gpio/12"
-    availability_topic: "sonoff/sonoff_005/status/LWT"
+    state_topic: "sonoff_005/switch/power/state"
+    command_topic: "sonoff_005/switch/power/command"
+    availability_topic: "sonoff_005/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Bookcase"
-    state_topic: "sonoff/sonoff_006/power/state"
-    command_topic: "sonoff/sonoff_006/gpio/12"
-    availability_topic: "sonoff/sonoff_006/status/LWT"
+    state_topic: "sonoff_006/switch/power/state"
+    command_topic: "sonoff_006/switch/power/command"
+    availability_topic: "sonoff_006/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Headboard"
-    state_topic: "sonoff/sonoff_007/power/state"
-    command_topic: "sonoff/sonoff_007/gpio/12"
-    availability_topic: "sonoff/sonoff_007/status/LWT"
+    state_topic: "sonoff_007/switch/power/state"
+    command_topic: "sonoff_007/switch/power/command"
+    availability_topic: "sonoff_007/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Dohm"
-    state_topic: "sonoff/sonoff_008/power/state"
-    command_topic: "sonoff/sonoff_008/gpio/12"
-    availability_topic: "sonoff/sonoff_008/status/LWT"
+    state_topic: "sonoff_008/switch/power/state"
+    command_topic: "sonoff_008/switch/power/command"
+    availability_topic: "sonoff_008/status"
     qos: 0
-    payload_on: 1
-    payload_off: 0
-    payload_available: "Connected"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
     retain: true
 
   - platform: mqtt
     name: "Star Bright"
-    state_topic: "sonoff_009/switch/gpio12/state"
-    command_topic: "sonoff_009/switch/gpio12/command"
+    state_topic: "sonoff_009/switch/power/state"
+    command_topic: "sonoff_009/switch/power/command"
     availability_topic: "sonoff_009/status"
     qos: 0
     payload_on: "ON"
@@ -149,8 +149,8 @@
 
   - platform: mqtt
     name: "Star Light"
-    state_topic: "sonoff_010/switch/gpio12/state"
-    command_topic: "sonoff_010/switch/gpio12/command"
+    state_topic: "sonoff_010/switch/power/state"
+    command_topic: "sonoff_010/switch/power/command"
     availability_topic: "sonoff_010/status"
     qos: 0
     payload_on: "ON"
@@ -160,8 +160,8 @@
 
   - platform: mqtt
     name: "Kitchen Grow Light"
-    state_topic: "sonoff_011/switch/gpio12/state"
-    command_topic: "sonoff_011/switch/gpio12/command"
+    state_topic: "sonoff_011/switch/power/state"
+    command_topic: "sonoff_011/switch/power/command"
     availability_topic: "sonoff_011/status"
     qos: 0
     payload_on: "ON"
