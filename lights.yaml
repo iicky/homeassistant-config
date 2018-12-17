@@ -1,4 +1,5 @@
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: 'Hoplite'
     state_topic: 'wemos/hoplite'
     command_topic: 'wemos/hoplite/set'
@@ -10,7 +11,8 @@
     optimistic: false
     qos: 0
 
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: 'Blue Jar'
     state_topic: 'wemos/blue_jar'
     command_topic: 'wemos/blue_jar/set'
@@ -22,7 +24,8 @@
     optimistic: false
     qos: 0
 
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: 'Vines'
     state_topic: 'wemos/vines'
     command_topic: 'wemos/vines/set'
@@ -32,7 +35,8 @@
     optimistic: false
     qos: 0
 
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: 'Neopixel'
     state_topic: 'wemos/neopixel'
     command_topic: 'wemos/neopixel/set'
