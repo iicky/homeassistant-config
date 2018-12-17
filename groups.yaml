@@ -58,7 +58,7 @@ office:
 kitchen:
   name: Kitchen
   entities:
-    - switch.grow_light
+    - switch.kitchen_grow_light
 
 plants:
   name: Plants
