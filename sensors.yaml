@@ -343,6 +343,27 @@
       - "angle"
 
 #------------------------------------------------------------------------------
+# SONOFF POW
+#------------------------------------------------------------------------------
+
+ # Living Room AC
+ #--------------------------------------------
+  - platform: mqtt
+    state_topic: 'sonoff_pow_001/sensor/voltage/state'
+    unit_of_measurement: 'V'
+    name: 'Living Room AC Voltage'
+
+  - platform: mqtt
+    state_topic: 'sonoff_pow_001/sensor/current/state'
+    unit_of_measurement: 'A'
+    name: 'Living Room AC Current'
+
+  - platform: mqtt
+    state_topic: 'sonoff_pow_001/sensor/power/state'
+    unit_of_measurement: 'W'
+    name: 'Living Room AC Power'
+
+#------------------------------------------------------------------------------
 # PRESENCE
 #------------------------------------------------------------------------------
 
