@@ -100,7 +100,7 @@
     retain: true
 
   - platform: mqtt
-    name: "Soldering Iron"
+    name: "Crockpot"
     state_topic: "sonoff_004/switch/power/state"
     command_topic: "sonoff_004/switch/power/command"
     availability_topic: "sonoff_004/status"
