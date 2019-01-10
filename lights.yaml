@@ -26,6 +26,19 @@
 
   - platform: mqtt
     schema: json
+    name: 'Calavera'
+    state_topic: 'wemos/calavera'
+    command_topic: 'wemos/calavera/set'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+  - platform: mqtt
+    schema: json
     name: 'Vines'
     state_topic: 'wemos/vines'
     command_topic: 'wemos/vines/set'

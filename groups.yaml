@@ -32,6 +32,7 @@ moodlights:
     - light.hoplite
     - light.blue_jar
     - light.vines
+    - light.calavera
                      
 livingroom:
   name: Living Room
