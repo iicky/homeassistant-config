@@ -1,0 +1,7 @@
+  filter:
+    include_entities:
+      - switch.dohm
+      - switch.blacksmith
+      - switch.headboard
+      - switch.flames
+      - light.fairy_lights
