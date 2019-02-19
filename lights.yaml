@@ -55,6 +55,7 @@
     command_topic: 'wemos/fairy_lights/set'
     retain: true
     brightness: true
+    brightness_scale: 100
     rgb: false
     optimistic: false
     qos: 0
