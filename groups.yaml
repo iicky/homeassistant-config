@@ -50,6 +50,7 @@ bedroom:
     - switch.dohm
     - switch.blacksmith
     - switch.headboard
+    - light.fairy_lights
 
 office:
   name: Office

@@ -50,6 +50,17 @@
 
   - platform: mqtt
     schema: json
+    name: 'Fairy Lights'
+    state_topic: 'wemos/fairy_lights'
+    command_topic: 'wemos/fairy_lights/set'
+    retain: true
+    brightness: true
+    rgb: false
+    optimistic: false
+    qos: 0
+
+  - platform: mqtt
+    schema: json
     name: 'Neopixel'
     state_topic: 'wemos/neopixel'
     command_topic: 'wemos/neopixel/set'
