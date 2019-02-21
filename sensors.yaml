@@ -248,10 +248,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:door"
     value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
-    json_attributes: 
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
 
  # Xiaomi Motion Sensor - Bedroom
  #--------------------------------------------
@@ -261,10 +258,8 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+
   - platform: "mqtt"
     name: "Bedroom Illuminance"
     state_topic: "zigbee2mqtt/bedroom_motion_sensor"
@@ -272,10 +267,7 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
 
  # Xiaomi Motion Sensor - Living Room
  #--------------------------------------------
@@ -285,10 +277,8 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+
   - platform: "mqtt"
     name: "Living Room Illuminance"
     state_topic: "zigbee2mqtt/living_room_motion_sensor"
@@ -296,10 +286,7 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
 
  # Xiaomi Motion Sensor - Office
  #--------------------------------------------
@@ -309,10 +296,8 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+
   - platform: "mqtt"
     name: "Office Illuminance"
     state_topic: "zigbee2mqtt/office_motion_sensor"
@@ -320,10 +305,7 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
 
  # Xiaomi Magic Cube
  #--------------------------------------------
@@ -333,14 +315,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:cube-outline"
     value_template: "{{ value_json.action }}"
-    json_attributes:
-      - "linkquality"
-      - "battery"
-      - "voltage"
-      - "side"
-      - "from_side"
-      - "to_side"
-      - "angle"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
 
 #------------------------------------------------------------------------------
 # SONOFF POW
@@ -477,3 +452,32 @@
       - ping
       - download
       - upload
+
+#------------------------------------------------------------------------------
+# Glances
+#------------------------------------------------------------------------------
+
+ # Brick         
+ #--------------------------------------------
+  - platform: glances
+    host: 192.168.1.222
+    name: Brick
+    resources:
+      - 'disk_use_percent'
+      - 'disk_use'
+      - 'disk_free'
+      - 'memory_use_percent'
+      - 'memory_use'
+      - 'memory_free'
+      - 'swap_use_percent'
+      - 'swap_use'
+      - 'swap_free'
+      - 'processor_load'
+      - 'process_running'
+      - 'process_total'
+      - 'process_thread'
+      - 'process_sleeping'
+      - 'cpu_temp'
+      - 'docker_active'
+      - 'docker_cpu_use'
+      - 'docker_memory_use'
