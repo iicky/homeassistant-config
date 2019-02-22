@@ -147,13 +147,13 @@ automation: !include automations.yaml
 binary_sensor: !include binary_sensors.yaml
 device_tracker: !include trackers.yaml
 group: !include groups.yaml
+homekit: !include homekit.yaml
 light: !include lights.yaml
 media_player: !include media_players.yaml
 plant: !include plants.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
+speedtestdotnet: !include speedtest.yaml
 switch: !include switches.yaml
 zone: !include zones.yaml
-
-homekit:
 
