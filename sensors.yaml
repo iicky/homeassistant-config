@@ -449,6 +449,7 @@
   - platform: glances
     host: 192.168.1.222
     name: Brick
+    version: 3
     resources:
       - 'disk_use_percent'
       - 'disk_use'
