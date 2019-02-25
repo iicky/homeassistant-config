@@ -219,6 +219,19 @@
     qos: 0
     retain: true
 
+#------------------------------------------------------------------------------
+# Dummy Switches
+#------------------------------------------------------------------------------
+
+  - platform: mqtt
+    name: "Bedroom Motion Toggle"
+    state_topic: "toggles/bedroom_motion"
+    command_topic: "toggles/bedroom_motion"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true
 
 #------------------------------------------------------------------------------
 # Template Switches
@@ -237,3 +250,4 @@
           service: switch.turn_off
           data:
             entity_id: switch.living_room_tv_ir
+
