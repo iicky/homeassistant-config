@@ -151,17 +151,6 @@
     retain: true
 
   - platform: mqtt
-    name: "Dohm"
-    state_topic: "sonoff_008/switch/power/state"
-    command_topic: "sonoff_008/switch/power/command"
-    availability_topic: "sonoff_008/status"
-    qos: 0
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "online"
-    retain: true
-
-  - platform: mqtt
     name: "Star Bright"
     state_topic: "sonoff_009/switch/power/state"
     command_topic: "sonoff_009/switch/power/command"
@@ -188,6 +177,17 @@
     state_topic: "sonoff_011/switch/power/state"
     command_topic: "sonoff_011/switch/power/command"
     availability_topic: "sonoff_011/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - platform: mqtt
+    name: "Dohm"
+    state_topic: "sonoff_012/switch/power/state"
+    command_topic: "sonoff_012/switch/power/command"
+    availability_topic: "sonoff_012/status"
     qos: 0
     payload_on: "ON"
     payload_off: "OFF"
