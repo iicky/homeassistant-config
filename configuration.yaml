@@ -150,6 +150,9 @@ mqtt:
   username: !secret mosquitto_user
   password: !secret mosquitto_pass
 
+#------------------------------------------------------------------------------
+# Includes
+#------------------------------------------------------------------------------
 apple_tv: !include apple_tv.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensors.yaml
