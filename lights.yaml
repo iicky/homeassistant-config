@@ -3,6 +3,7 @@
     name: 'Hoplite'
     state_topic: 'wemos/hoplite'
     command_topic: 'wemos/hoplite/set'
+    availability_topic: 'wemos/hoplite/status'
     retain: true
     effect: true
     effect_list: !include WS2812FX.yaml
@@ -16,6 +17,7 @@
     name: 'Blue Jar'
     state_topic: 'wemos/blue_jar'
     command_topic: 'wemos/blue_jar/set'
+    availability_topic: 'wemos/blue_jar/status'
     retain: true
     effect: true
     effect_list: !include WS2812FX.yaml
@@ -29,6 +31,7 @@
     name: 'Calavera'
     state_topic: 'wemos/calavera'
     command_topic: 'wemos/calavera/set'
+    availability_topic: 'wemos/calavera/status'
     retain: true
     effect: true
     effect_list: !include WS2812FX.yaml
@@ -72,6 +75,7 @@
     name: 'Neopixel'
     state_topic: 'wemos/neopixel'
     command_topic: 'wemos/neopixel/set'
+    availability_topic: 'wemos/neopixel/status'
     retain: true
     effect: true
     effect_list: !include WS2812FX.yaml
