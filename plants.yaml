@@ -87,3 +87,21 @@
     min_brightness: 3000
     max_brightness: 20000
     check_days: 3
+
+  umbrella_tree:
+    sensors:
+      moisture: sensor.umbrella_tree_moisture
+      battery: sensor.umbrella_tree_battery
+      temperature: sensor.umbrella_tree_temperature
+      conductivity: sensor.umbrella_tree_conductivity
+      brightness: sensor.umbrella_tree_light_intensity
+    min_moisture: 15
+    max_moisture: 60
+    min_battery: 20
+    min_conductivity: 35
+    max_conductivity: 2000
+    min_temperature: 42
+    max_temperature: 89
+    min_brightness: 1000
+    max_brightness: 18000
+    check_days: 3
