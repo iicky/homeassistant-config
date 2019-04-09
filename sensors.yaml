@@ -236,6 +236,34 @@
     unit_of_measurement: '%'
     value_template: "{{ value_json.battery }}"
 
+  # Umbrella Tree
+  #--------------------------------------------
+  - platform: mqtt
+    name: "umbrella_tree_temperature"
+    state_topic: "miflora/umbrella_tree"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "umbrella_tree_light_intensity"
+    state_topic: "miflora/umbrella_tree"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.light }}"
+  - platform: mqtt
+    name: "umbrella_tree_moisture"
+    state_topic: "miflora/umbrella_tree"
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.moisture }}"
+  - platform: mqtt
+    name: "umbrella_tree_conductivity"
+    state_topic: "miflora/umbrella_tree"
+    unit_of_measurement: 'µS/cm'
+    value_template: "{{ value_json.conductivity }}"
+  - platform: mqtt
+    name: "umbrella_tree_battery"
+    state_topic: "miflora/umbrella_tree"
+   unit_of_measurement: '%'
+    value_template: "{{ value_json.battery }}"
+
 #------------------------------------------------------------------------------
 # ZIGBEE2MQTT
 #------------------------------------------------------------------------------
@@ -472,80 +500,80 @@
 
  # RPi         
  #--------------------------------------------
-  - platform: glances
-    host: 192.168.1.118
-    name: RPi
-    version: 3
-    resources:
-      - 'disk_use_percent'
-      - 'disk_use'
-      - 'disk_free'
-      - 'memory_use_percent'
-      - 'memory_use'
-      - 'memory_free'
-      - 'swap_use_percent'
-      - 'swap_use'
-      - 'swap_free'
-      - 'processor_load'
-      - 'process_running'
-      - 'process_total'
-      - 'process_thread'
-      - 'process_sleeping'
-      - 'cpu_temp'
-      - 'docker_active'
-      - 'docker_cpu_use'
-      - 'docker_memory_use'
+ # - platform: glances
+ #   host: 192.168.1.118
+ #   name: RPi
+ #   version: 3
+ #   resources:
+ #     - 'disk_use_percent'
+ #     - 'disk_use'
+ #     - 'disk_free'
+ #     - 'memory_use_percent'
+ #     - 'memory_use'
+ #     - 'memory_free'
+ #     - 'swap_use_percent'
+ #     - 'swap_use'
+ #     - 'swap_free'
+ #     - 'processor_load'
+ #     - 'process_running'
+ #     - 'process_total'
+ #     - 'process_thread'
+ #     - 'process_sleeping'
+ #     - 'cpu_temp'
+ #     - 'docker_active'
+ #     - 'docker_cpu_use'
+ #     - 'docker_memory_use'
 
  # Wynken         
  #--------------------------------------------
-  - platform: glances
-    host: 192.168.1.120
-    name: Wynken
-    version: 3
-    resources:
-      - 'disk_use_percent'
-      - 'disk_use'
-      - 'disk_free'
-      - 'memory_use_percent'
-      - 'memory_use'
-      - 'memory_free'
-      - 'swap_use_percent'
-      - 'swap_use'
-      - 'swap_free'
-      - 'processor_load'
-      - 'process_running'
-      - 'process_total'
-      - 'process_thread'
-      - 'process_sleeping'
-      - 'cpu_temp'
-      - 'docker_active'
-      - 'docker_cpu_use'
-      - 'docker_memory_use'
+ # - platform: glances
+ #   host: 192.168.1.120
+ #   name: Wynken
+ #   version: 3
+ #   resources:
+ #     - 'disk_use_percent'
+ #     - 'disk_use'
+ #     - 'disk_free'
+ #     - 'memory_use_percent'
+ #     - 'memory_use'
+ #     - 'memory_free'
+ #     - 'swap_use_percent'
+ #     - 'swap_use'
+ #     - 'swap_free'
+ #     - 'processor_load'
+ #     - 'process_running'
+ #     - 'process_total'
+ #     - 'process_thread'
+ #     - 'process_sleeping'
+ #     - 'cpu_temp'
+ #     - 'docker_active'
+ #     - 'docker_cpu_use'
+ #     - 'docker_memory_use'
 
  # Blynken         
  #--------------------------------------------
-  - platform: glances
-    host: 192.168.1.119
-    name: Blynken
-    version: 3
-    resources:
-      - 'disk_use_percent'
-      - 'disk_use'
-      - 'disk_free'
-      - 'memory_use_percent'
-      - 'memory_use'
-      - 'memory_free'
-      - 'swap_use_percent'
-      - 'swap_use'
-      - 'swap_free'
-      - 'processor_load'
-      - 'process_running'
-      - 'process_total'
-      - 'process_thread'
-      - 'process_sleeping'
-      - 'cpu_temp'
-      - 'docker_active'
-      - 'docker_cpu_use'
-      - 'docker_memory_use'
+ # - platform: glances
+ #   host: 192.168.1.119
+ #   name: Blynken
+ #   version: 3
+ #   resources:
+ #     - 'disk_use_percent'
+ #     - 'disk_use'
+ #     - 'disk_free'
+ #     - 'memory_use_percent'
+ #     - 'memory_use'
+ #     - 'memory_free'
+ #     - 'swap_use_percent'
+ #     - 'swap_use'
+ #     - 'swap_free'
+ #     - 'processor_load'
+ #     - 'process_running'
+ #     - 'process_total'
+ #     - 'process_thread'
+ #     - 'process_sleeping'
+ #     - 'cpu_temp'
+ #     - 'docker_active'
+ #     - 'docker_cpu_use'
+ #     - 'docker_memory_use'
 
 
