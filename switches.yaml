@@ -151,17 +151,6 @@
     retain: true
 
   - platform: mqtt
-    name: "Star Bright"
-    state_topic: "sonoff_009/switch/power/state"
-    command_topic: "sonoff_009/switch/power/command"
-    availability_topic: "sonoff_009/status"
-    qos: 0
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "online"
-    retain: true
-
-  - platform: mqtt
     name: "Star Light"
     state_topic: "sonoff_010/switch/power/state"
     command_topic: "sonoff_010/switch/power/command"
@@ -203,6 +192,16 @@
     payload_on: "ON"
     value_template: "{{ value_json.state }}"
     json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+
+  - platform: mqtt
+    name: "Star Bright"
+    state_topic: "zigbee2mqtt/tradfri_001"
+    command_topic: "zigbee2mqtt/tradfri_001/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    retain: true
 
   - platform: mqtt
     name: "RGB Led"
