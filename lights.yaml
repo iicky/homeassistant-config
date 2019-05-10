@@ -48,6 +48,18 @@
     retain: true
     brightness: true
     rgb: true
+    effect: true
+    effect_list:
+      - solid
+      - rainbow
+      - flash
+      - rainbow flash
+      - fade
+      - rainbow fade
+      - flicker
+      - rainbow flicker
+      - random
+      - rainbow random
     optimistic: false
     qos: 0
 
