@@ -204,6 +204,16 @@
     retain: true
 
   - platform: mqtt
+    name: "Birch Branches"
+    state_topic: "viacom/birch_branches"
+    command_topic: "viacom/birch_branches/set"
+    availability_topic: "viacom/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    retain: true
+
+  - platform: mqtt
     name: "RGB Led"
     state_topic: "testing/rgbled"
     command_topic: "testing/rgbled"

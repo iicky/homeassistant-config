@@ -62,6 +62,11 @@ kitchen:
   entities:
     - switch.kitchen_grow_light
 
+viacom:
+  name: Viacom
+  entities:
+    - switch.birch_branches
+
 plants:
   name: Plants
   icon: mdi:flower
