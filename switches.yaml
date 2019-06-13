@@ -192,6 +192,7 @@
     payload_on: "ON"
     value_template: "{{ value_json.state }}"
     json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    retain: true
 
   - platform: mqtt
     name: "Star Bright"
@@ -201,6 +202,7 @@
     payload_on: "ON"
     payload_off: "OFF"
     value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
     retain: true
 
   - platform: mqtt
@@ -211,6 +213,7 @@
     payload_on: "ON"
     payload_off: "OFF"
     value_template: "{{ value_json.state }}"
+    json_attributes_topic: "viacom/birch_branches"
     retain: true
 
   - platform: mqtt
