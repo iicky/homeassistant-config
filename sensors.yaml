@@ -305,7 +305,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensort"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
 
   - platform: "mqtt"
     name: "Living Room Illuminance"
