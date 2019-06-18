@@ -276,7 +276,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:door"
     value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
 
  # Xiaomi Motion Sensor - Bedroom
  #--------------------------------------------
@@ -286,7 +286,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
 
   - platform: "mqtt"
     name: "Bedroom Illuminance"
@@ -295,7 +295,7 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
 
  # Xiaomi Motion Sensor - Living Room
  #--------------------------------------------
@@ -305,7 +305,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensort"
 
   - platform: "mqtt"
     name: "Living Room Illuminance"
@@ -314,7 +314,7 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
 
  # Xiaomi Motion Sensor - Office
  #--------------------------------------------
@@ -324,7 +324,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
 
   - platform: "mqtt"
     name: "Office Illuminance"
@@ -333,7 +333,7 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
 
  # Xiaomi Magic Cube
  #--------------------------------------------
@@ -343,7 +343,7 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:cube-outline"
     value_template: "{{ value_json.action }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_grow_light"
+    json_attributes_topic: "zigbee2mqtt/mi_cube"
 
 #------------------------------------------------------------------------------
 # SONOFF POW
@@ -576,4 +576,28 @@
  #     - 'docker_cpu_use'
  #     - 'docker_memory_use'
 
+#------------------------------------------------------------------------------
+# Templates
+#------------------------------------------------------------------------------
 
+  - platform: template
+    sensors:
+
+      # Airplants Last Watered
+      airplants_last_watered:
+        value_template: '{{ strptime("2019-06-07", "%Y-%m-%d").date() }}'
+        entity_id: sensor.date
+        friendly_name: 'Airplants Last Watered'
+   
+      # Airplants Days Since Last Watered
+      airplants_days_since_last_watered:
+        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime(states.sensor.airplants_last_watered.state, "%Y-%m-%d")) ) / 86400 ) | int }}'
+        entity_id: sensor.date, sensor.airplants_last_watered
+        friendly_name: "Airplants Days Since Last Watered"
+        icon_template: >-
+          {% if states.sensor.airplants_days_since_last_watered.state | int  > 14 %}
+            mdi:timer-sand-empty
+          {% else %}
+            mdi:timer-sand-full
+          {% endif %}
+        unit_of_measurement: "Days"
