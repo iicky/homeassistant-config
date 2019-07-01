@@ -252,6 +252,16 @@
     qos: 0
     retain: true
 
+  - platform: mqtt
+    name: "Front Door Toggle"
+    state_topic: "toggles/front_door"
+    command_topic: "toggles/front_door"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true
+
 #------------------------------------------------------------------------------
 # Template Switches
 #------------------------------------------------------------------------------
