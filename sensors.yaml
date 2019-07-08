@@ -278,6 +278,25 @@
     value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
     json_attributes_topic: "zigbee2mqtt/front_door_sensor"
 
+  - platform: "mqtt"
+    name: "Front Door Battery"
+    state_topic: "zigbee2mqtt/front_door_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
+
+  - platform: "mqtt"
+    name: "Front Door Link Quality"
+    state_topic: "zigbee2mqtt/front_door_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:access-point"
+    unit_of_measurement: "LQI"
+    value_template: "{{ value_json.linkquality }}"
+    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
+
  # Xiaomi Motion Sensor - Bedroom
  #--------------------------------------------
   - platform: "mqtt"
@@ -295,6 +314,25 @@
     icon: "mdi:theme-light-dark"
     unit_of_measurement: 'lx'
     value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
+
+  - platform: "mqtt"
+    name: "Bedroom Motion Battery"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
+
+  - platform: "mqtt"
+    name: "Bedroom Motion Link Quality"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:access-point"
+    unit_of_measurement: "LQI"
+    value_template: "{{ value_json.linkquality }}"
     json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
 
  # Xiaomi Motion Sensor - Living Room
@@ -316,6 +354,25 @@
     value_template: "{{ value_json.illuminance }}"
     json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
 
+  - platform: "mqtt"
+    name: "Living Room Motion Battery"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
+
+  - platform: "mqtt"
+    name: "Living Room Motion Link Quality"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:access-point"
+    unit_of_measurement: "LQI"
+    value_template: "{{ value_json.linkquality }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
+
  # Xiaomi Motion Sensor - Office
  #--------------------------------------------
   - platform: "mqtt"
@@ -335,6 +392,25 @@
     value_template: "{{ value_json.illuminance }}"
     json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
 
+  - platform: "mqtt"
+    name: "Office Motion Battery"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
+
+  - platform: "mqtt"
+    name: "Office Motion Link Quality"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:access-point"
+    unit_of_measurement: "LQI"
+    value_template: "{{ value_json.linkquality }}"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
+
  # Xiaomi Magic Cube
  #--------------------------------------------
   - platform: "mqtt"
@@ -343,6 +419,25 @@
     availability_topic: "zigbee2mqtt/bridge/state"
     icon: "mdi:cube-outline"
     value_template: "{{ value_json.action }}"
+    json_attributes_topic: "zigbee2mqtt/mi_cube"
+
+  - platform: "mqtt"
+    name: "Magic Cube Battery"
+    state_topic: "zigbee2mqtt/mi_cube"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/mi_cube"
+
+  - platform: "mqtt"
+    name: "Magic Cube Link Quality"
+    state_topic: "zigbee2mqtt/mi_cube"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:access-point"
+    unit_of_measurement: "LQI"
+    value_template: "{{ value_json.linkquality }}"
     json_attributes_topic: "zigbee2mqtt/mi_cube"
 
  # Xiaomi Temperature Sensor - Living Room
@@ -381,7 +476,7 @@
     name: "Living Room Weather Battery"
     state_topic: "zigbee2mqtt/living_room_weather"
     availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:airballoon"
+    icon: "mdi:battery"
     device_class: "battery"
     unit_of_measurement: "%"
     value_template: "{{ value_json.battery }}"
