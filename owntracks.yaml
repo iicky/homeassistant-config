@@ -1,0 +1,15 @@
+#------------------------------------------------------------------------------
+# OWNTRACKS
+#------------------------------------------------------------------------------
+
+owntracks:
+  max_gps_accuracy: 100
+  waypoints: true
+  mqtt_topic: "owntracks/#"
+  events_only: true
+  waypoint_whitelist:
+    - mickey
+  region_mapping:
+      Viacom: Viacom
+      Home: Home
+      Turner: Turner

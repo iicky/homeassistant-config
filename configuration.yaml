@@ -127,7 +127,7 @@ sonos:
 influxdb:
   host: 127.0.0.1
   port: 8086
-  username: !secret influxdb_username  
+  username: !secret influxdb_username
   password: !secret influxdb_password
   database: !secret influxdb_database
   default_measurement: state
@@ -160,12 +160,13 @@ binary_sensor: !include binary_sensors.yaml
 device_tracker: !include trackers.yaml
 group: !include groups.yaml
 homekit: !include homekit.yaml
+ios:
 light: !include lights.yaml
 media_player: !include media_players.yaml
+owntracks: !include owntracks.yaml
 plant: !include plants.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 speedtestdotnet: !include speedtest.yaml
 switch: !include switches.yaml
 zone: !include zones.yaml
-
