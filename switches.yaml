@@ -217,6 +217,17 @@
     retain: true
 
   - platform: mqtt
+    name: "Desk Lamp""
+    state_topic: "viacom/desk_lamp"
+    command_topic: "viacom/desk_lamp/set"
+    availability_topic: "viacom/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "viacom/desk_lamp"
+    retain: true
+
+  - platform: mqtt
     name: "RGB Led"
     state_topic: "testing/rgbled"
     command_topic: "testing/rgbled"

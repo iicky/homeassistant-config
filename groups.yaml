@@ -66,6 +66,7 @@ viacom:
   name: Viacom
   entities:
     - switch.birch_branches
+    - switch.desk_lamp
 
 plants:
   name: Plants
