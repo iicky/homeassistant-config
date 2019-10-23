@@ -217,7 +217,7 @@
     retain: true
 
   - platform: mqtt
-    name: "Desk Lamp""
+    name: "Desk Lamp"
     state_topic: "viacom/desk_lamp"
     command_topic: "viacom/desk_lamp/set"
     availability_topic: "viacom/bridge/state"
