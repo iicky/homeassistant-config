@@ -4,7 +4,7 @@ default_view:
   view: yes
   entities:
     - group.subway
-    - group.moodlights  
+    - group.moodlights
     - group.livingroom
     - group.bedroom
     - group.office
@@ -29,14 +29,16 @@ moodlights:
     - switch.lite_brite
     - switch.star_light
     - switch.star_bright
+    - switch.lanna_lantern
+    - switch.thai_light
     - light.hoplite
     - light.blue_jar
     - light.vines
     - light.calavera
-                     
+
 livingroom:
   name: Living Room
-  entities:    
+  entities:
     - sensor.front_door
     - switch.petcube
     - switch.living_room_tv

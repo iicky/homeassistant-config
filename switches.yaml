@@ -151,6 +151,28 @@
     retain: true
 
   - platform: mqtt
+    name: "Lanna Lantern"
+    state_topic: "sonoff_008/switch/power/state"
+    command_topic: "sonoff_008/switch/power/command"
+    availability_topic: "sonoff_008/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - platform: mqtt
+    name: "Thai Light"
+    state_topic: "sonoff_009/switch/power/state"
+    command_topic: "sonoff_009/switch/power/command"
+    availability_topic: "sonoff_009/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - platform: mqtt
     name: "Star Light"
     state_topic: "sonoff_010/switch/power/state"
     command_topic: "sonoff_010/switch/power/command"
@@ -290,4 +312,3 @@
           service: switch.turn_off
           data:
             entity_id: switch.living_room_tv_ir
-
