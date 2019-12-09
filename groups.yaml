@@ -69,6 +69,8 @@ viacom:
   entities:
     - switch.birch_branches
     - switch.desk_lamp
+    - switch.black_star
+    - switch.white_star
 
 plants:
   name: Plants
