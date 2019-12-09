@@ -30,6 +30,12 @@
         command_on: "JgBcABIADGQAAS6UFBEUEhQRFREUERURFBEVERQ2FDYUNhQ2FDYUNhQ2FDUVNRURFBIUERQRFREUERURFBEVNRQ2FDYUNhQ2FDYUNhQABSMAAS1JFAAMYQABLUgVAA0FAAAAAAAAAAAAAAAA"
         command_off: "JgCwAAABLZQUERQSFBEUEhQRFBIUERQSFDUVNhQ1FTUUNhQ2FDYUNhQSFBEUEhQRFBEVERQRFBIUNhQ2FDYUNRU1FTUUNhQ2FAAFJAABLUkUAAxhAAEsSRQADGAAAS1JFAAMYAABLUgVAAxgAAEsSRQADGAAAS1IFQAMYAABLEkUAAxgAAEsSRQADGAAASxJFAAMYQABLEkUAAxgAAEsSRQADGAAASxJFAAMYAABLUkUAA0FAAAAAAAAAAA="
 
+      # Rice Lights
+      rice_lights:
+        friendly_name: "Rice Lights"
+        command_on: "JgBoAAABK5IVEhQ1FBIUEhQSFBIVEhQSFDUUEhQ2FDUUNhQ1FDUVNRQSFBIUExMSFBIUEhUSFBIUNRQ1FTUUNRQ2FDUUNhQ1FAAFDQABK0gVAAxLAAErSBQADEsAAStJFAAMSwABK0gUAA0F"
+        command_off: "JgBwAAABK5MUEhQ1FBIUExMTExMTExQSFDUUEhQ1FTUUNRQ2FDUUNRUSFDUUEhQTExMTExMTExIUNhQSFDUUNhQ1FDUVNRQ1FQAFDAABK0gUAAxKAAErSRQADEoAAStIFAAMSgABK0kUAAxKAAErSBQADQUAAAAAAAAAAA"
+
   # Bedroom IR
   # -------------------------------
   - platform: broadlink
@@ -247,6 +253,28 @@
     payload_off: "OFF"
     value_template: "{{ value_json.state }}"
     json_attributes_topic: "viacom/desk_lamp"
+    retain: true
+
+  - platform: mqtt
+    name: "Black Star"
+    state_topic: "viacom/black_star"
+    command_topic: "viacom/black_star/set"
+    availability_topic: "viacom/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "viacom/black_star"
+    retain: true
+
+  - platform: mqtt
+    name: "White Star"
+    state_topic: "viacom/white_star"
+    command_topic: "viacom/white_star/set"
+    availability_topic: "viacom/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "viacom/white_star"
     retain: true
 
   - platform: mqtt
