@@ -147,7 +147,7 @@ panel_iframe:
 mqtt:
   broker: 192.168.1.222
   port: 1883
-  client_id: homeassistant
+  client_id: core-homeassistant
   username: !secret mosquitto_user
   password: !secret mosquitto_pass
 
@@ -163,7 +163,8 @@ homekit: !include homekit.yaml
 ios:
 light: !include lights.yaml
 media_player: !include media_players.yaml
-owntracks: !include owntracks.yaml
+mobile_app:
+#owntracks: !include owntracks.yaml
 plant: !include plants.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
