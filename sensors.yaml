@@ -311,6 +311,10 @@
     value_template: "{{ value_json.occupancy }}"
     json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
 
+  - platform: mqtt
+    name: "Bedroom Last Motion"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor/last_motion"
+
   - platform: "mqtt"
     name: "Bedroom Illuminance"
     state_topic: "zigbee2mqtt/bedroom_motion_sensor"
@@ -349,6 +353,10 @@
     value_template: "{{ value_json.occupancy }}"
     json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
 
+  - platform: mqtt
+    name: "Living Room Last Motion"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor/last_motion"
+
   - platform: "mqtt"
     name: "Living Room Illuminance"
     state_topic: "zigbee2mqtt/living_room_motion_sensor"
@@ -386,6 +394,10 @@
     icon: "mdi:run-fast"
     value_template: "{{ value_json.occupancy }}"
     json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
+
+  - platform: mqtt
+    name: "Office Last Motion"
+    state_topic: "zigbee2mqtt/office_motion_sensor/last_motion"
 
   - platform: "mqtt"
     name: "Office Illuminance"

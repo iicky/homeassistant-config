@@ -14,3 +14,42 @@
           topic: 'zigbee2mqtt/front_door_sensor/last_opened'
           payload_template: '{{ as_timestamp(states.sensor.front_door.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
           retain: 'true'
+
+  - alias: Bedroom Last Motion Log
+    trigger:
+      - platform: state
+        entity_id: sensor.bedroom_motion
+        to: 'True'
+    action:
+      - service: mqtt.publish
+        alias: Bedroom Last Motion Time
+        data:
+          topic: 'zigbee2mqtt/bedroom_motion_sensor/last_motion'
+          payload_template: '{{ as_timestamp(states.sensor.bedroom_motion.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          retain: 'true'
+
+  - alias: Living Room Last Motion Log
+    trigger:
+      - platform: state
+        entity_id: sensor.living_room_motion
+        to: 'True'
+    action:
+      - service: mqtt.publish
+        alias: Living Room Last Motion Time
+        data:
+          topic: 'zigbee2mqtt/living_room_motion_sensor/last_motion'
+          payload_template: '{{ as_timestamp(states.sensor.living_room_motion.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          retain: 'true'
+
+  - alias: Office Last Motion Log
+    trigger:
+      - platform: state
+        entity_id: sensor.office_motion
+        to: 'True'
+    action:
+      - service: mqtt.publish
+        alias: Office Last Motion Time
+        data:
+          topic: 'zigbee2mqtt/office_motion_sensor/last_motion'
+          payload_template: '{{ as_timestamp(states.sensor.office_motion.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          retain: 'true'
