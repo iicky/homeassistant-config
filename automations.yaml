@@ -1,1 +1,16 @@
-[]
+#------------------------------------------------------------------------------
+# Last Actions Log
+#------------------------------------------------------------------------------
+  - alias: Front Door Last Opened Log
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door
+        from: 'Closed'
+        to: 'Open'
+    action:
+      - service: mqtt.publish
+        alias: Front Door Last Opened Time
+        data:
+          topic: 'zigbee2mqtt/front_door_sensor/last_opened'
+          payload_template: '{{ as_timestamp(states.sensor.front_door.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          retain: 'true'

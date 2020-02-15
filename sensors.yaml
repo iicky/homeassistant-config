@@ -297,6 +297,10 @@
     value_template: "{{ value_json.linkquality }}"
     json_attributes_topic: "zigbee2mqtt/front_door_sensor"
 
+  - platform: mqtt
+    name: "Front Door Last Opened"
+    state_topic: "zigbee2mqtt/front_door_sensor/last_opened"
+
  # Xiaomi Motion Sensor - Bedroom
  #--------------------------------------------
   - platform: "mqtt"
