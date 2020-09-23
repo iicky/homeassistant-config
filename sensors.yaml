@@ -31,11 +31,6 @@
       - SI
 
 #------------------------------------------------------------------------------
-# WEATHER PREDICTION
-#------------------------------------------------------------------------------
-  - platform: yr
-
-#------------------------------------------------------------------------------
 # DARK SKY
 #------------------------------------------------------------------------------
   - platform: darksky
@@ -67,58 +62,6 @@
       - apparent_temperature_low
       - precip_intensity_max
       - uv_index
-
-#------------------------------------------------------------------------------
-# POLLEN
-#------------------------------------------------------------------------------
-  - platform: pollen
-    zip_code: !secret sensor_pollen_zip_code
-    monitored_conditions:
-      - allergy_average_forecasted
-      - allergy_average_historical
-      - allergy_index_today
-      - allergy_index_tomorrow
-      - allergy_index_yesterday
-      - disease_average_forecasted
-
-#------------------------------------------------------------------------------
-# MIFLORA
-#------------------------------------------------------------------------------
-#  - platform: miflora
-#    mac: 'C4:7C:8D:66:2A:75'
-#    name: Christmas Cactus
-#    force_update: false
-#    median: 3
-#    monitored_conditions:
-#      - moisture
-#      - light
-#      - temperature
-#      - conductivity
-#      - battery
-
-#  - platform: miflora
-#    mac: 'C4:7C:8D:66:37:01'
-#    name: Snake Plant
-#    force_update: false
-#    median: 3
-#    monitored_conditions:
-#      - moisture
-#      - light
-#      - temperature
-#      - conductivity
-#      - battery
-
-#  - platform: miflora
-#    mac: 'C4:7C:8D:66:E9:E2'
-#    name: Echeveria
-#    force_update: false
-#    median: 3
-#    monitored_conditions:
-#      - moisture
-#      - light
-#      - temperature
-#      - conductivity
-#      - battery
 
 #------------------------------------------------------------------------------
 # MIFLORA-MQTT
@@ -682,112 +625,20 @@
     name: 'Mickey iPhone Viacom Presence'
 
 #------------------------------------------------------------------------------
-# Glances
+# Room Assistant
 #------------------------------------------------------------------------------
 
- # Core
+ # Mickey
  #--------------------------------------------
-  - platform: glances
-    host: 192.168.1.222
-    name: Core
-    version: 3
-    resources:
-      - 'disk_use_percent'
-      - 'disk_use'
-      - 'disk_free'
-      - 'memory_use_percent'
-      - 'memory_use'
-      - 'memory_free'
-      - 'swap_use_percent'
-      - 'swap_use'
-      - 'swap_free'
-      - 'processor_load'
-      - 'process_running'
-      - 'process_total'
-      - 'process_thread'
-      - 'process_sleeping'
-      - 'cpu_temp'
-      - 'docker_active'
-      - 'docker_cpu_use'
-      - 'docker_memory_use'
+  - platform: mqtt
+    state_topic: 'room-assistant/sensor/bluetooth-classic-d8-8f-76-d2-23-75/state'
+    name: 'Mickey Room Presence'
 
- # RPi
+ # Maggie
  #--------------------------------------------
- # - platform: glances
- #   host: 192.168.1.118
- #   name: RPi
- #   version: 3
- #   resources:
- #     - 'disk_use_percent'
- #     - 'disk_use'
- #     - 'disk_free'
- #     - 'memory_use_percent'
- #     - 'memory_use'
- #     - 'memory_free'
- #     - 'swap_use_percent'
- #     - 'swap_use'
- #     - 'swap_free'
- #     - 'processor_load'
- #     - 'process_running'
- #     - 'process_total'
- #     - 'process_thread'
- #     - 'process_sleeping'
- #     - 'cpu_temp'
- #     - 'docker_active'
- #     - 'docker_cpu_use'
- #     - 'docker_memory_use'
-
- # Wynken
- #--------------------------------------------
- # - platform: glances
- #   host: 192.168.1.120
- #   name: Wynken
- #   version: 3
- #   resources:
- #     - 'disk_use_percent'
- #     - 'disk_use'
- #     - 'disk_free'
- #     - 'memory_use_percent'
- #     - 'memory_use'
- #     - 'memory_free'
- #     - 'swap_use_percent'
- #     - 'swap_use'
- #     - 'swap_free'
- #     - 'processor_load'
- #     - 'process_running'
- #     - 'process_total'
- #     - 'process_thread'
- #     - 'process_sleeping'
- #     - 'cpu_temp'
- #     - 'docker_active'
- #     - 'docker_cpu_use'
- #     - 'docker_memory_use'
-
- # Blynken
- #--------------------------------------------
- # - platform: glances
- #   host: 192.168.1.119
- #   name: Blynken
- #   version: 3
- #   resources:
- #     - 'disk_use_percent'
- #     - 'disk_use'
- #     - 'disk_free'
- #     - 'memory_use_percent'
- #     - 'memory_use'
- #     - 'memory_free'
- #     - 'swap_use_percent'
- #     - 'swap_use'
- #     - 'swap_free'
- #     - 'processor_load'
- #     - 'process_running'
- #     - 'process_total'
- #     - 'process_thread'
- #     - 'process_sleeping'
- #     - 'cpu_temp'
- #     - 'docker_active'
- #     - 'docker_cpu_use'
- #     - 'docker_memory_use'
+  - platform: mqtt
+    state_topic: 'room-assistant/sensor/bluetooth-classic-38-89-2c-1e-b9-98/state'
+    name: 'Maggie Room Presence'
 
 #------------------------------------------------------------------------------
 # Templates
