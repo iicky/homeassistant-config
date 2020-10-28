@@ -1,127 +1,63 @@
-default_view:
-  name: Home
-  icon: mdi:home
-  view: yes
-  entities:
-    - group.subway
-    - group.moodlights
-    - group.livingroom
-    - group.bedroom
-    - group.office
-    - group.kitchen
-    - group.weather
-    - group.trackers
-    - group.testing
+  bedroom:
+    name: Bedroom
+    all: true
+    entities:
+      - switch.dohm
+      - switch.blacksmith
+      - switch.headboard
+      - light.fairy_lights
+      - switch.thai_light
 
-subway:
-  name: Subway
-  entities:
-    - sensor.mta_subway_4
-    - sensor.mta_subway_5
-    - sensor.mta_subway_6
-    - sensor.mta_subway_q
+  kitchen:
+    name: Kitchen
+    all: true
+    entities:
+      - switch.kitchen_grow_light
 
-moodlights:
-  name: Mood Lights
-  entities:
-    - switch.bookcase
-    - switch.lava_lamp
-    - switch.lite_brite
-    - switch.star_light
-    - switch.star_bright
-    - switch.lanna_lantern
-    - switch.thai_light
-    - light.hoplite
-    - light.blue_jar
-    - light.vines
-    - light.calavera
+  livingroom:
+    name: Living Room
+    all: true
+    entities:
+      - sensor.front_door
+      - switch.petcube
+      - switch.living_room_tv
+      - switch.ac_main
+      - media_player.receiver
+      - media_player.apple_tv
 
-livingroom:
-  name: Living Room
-  entities:
-    - sensor.front_door
-    - switch.petcube
-    - switch.living_room_tv
-    - switch.ac_main
-    - media_player.receiver
-    - media_player.apple_tv
+  moodlights:
+    name: Mood Lights
+    all: true
+    entities:
+      - switch.bookcase
+      - switch.lava_lamp
+      - switch.lite_brite
+      - switch.star_light
+      - switch.star_bright
+      - switch.lanna_lantern
+      - light.hoplite
+      - light.blue_jar
+      - light.vines
+      - light.calavera
 
-bedroom:
-  name: Bedroom
-  entities:
-    - switch.dohm
-    - switch.blacksmith
-    - switch.headboard
-    - light.fairy_lights
+  office:
+    name: Office
+    all: true
+    entities:
+      - switch.soldering_iron
 
-office:
-  name: Office
-  entities:
-    - switch.soldering_iron
+  subway:
+    name: Subway
+    entities:
+      - sensor.mta_subway_4
+      - sensor.mta_subway_5
+      - sensor.mta_subway_6
+      - sensor.mta_subway_q
 
-kitchen:
-  name: Kitchen
-  entities:
-    - switch.kitchen_grow_light
-
-viacom:
-  name: Viacom
-  entities:
-    - switch.birch_branches
-    - switch.desk_lamp
-    - switch.black_star
-    - switch.white_star
-
-plants:
-  name: Plants
-  icon: mdi:flower
-  view: yes
-  entities:
-    - plant.christmas_cactus
-    - plant.snake_plant
-    - plant.golden_pothos
-    - plant.african_violet
-    - sensor.christmas_cactus_battery
-    - sensor.christmas_cactus_conductivity
-    - sensor.christmas_cactus_light_intensity
-    - sensor.christmas_cactus_moisture
-    - sensor.christmas_cactus_temperature
-    - sensor.snake_plant_battery
-    - sensor.snake_plant_conductivity
-    - sensor.snake_plant_light_intensity
-    - sensor.snake_plant_moisture
-    - sensor.snake_plant_temperature
-    - sensor.golden_pothos_battery
-    - sensor.golden_pothos_conductivity
-    - sensor.golden_pothos_light_intensity
-    - sensor.golden_pothos_moisture
-    - sensor.golden_pothos_temperature
-    - sensor.african_violet_battery
-    - sensor.african_violet_conductivity
-    - sensor.african_violet_light_intensity
-    - sensor.african_violet_moisture
-    - sensor.african_violet_temperature
-
-trackers:
-  name: Trackers
-  icon: mdi:radar
-  view: yes
-  entities:
-    - device_tracker.maggies_iphone_8
-    - device_tracker.mickeys_iphone_x
-    - device_tracker.google_maps_101608876393904256312
-    - device_tracker.mosquitto_mickeyowntracks
-    - sensor.maggie_iphone_overall_presence
-    - sensor.mickey_iphone_overall_presence
-    - sensor.bedroom_motion
-    - sensor.living_room_motion
-    - sensor.office_motion
-
-weather:
-  name: Weather
-  entities:
-    - sun.sun
-    - sensor.dark_sky_icon
-    - sensor.dark_sky_nearest_storm_distance
-    - sensor.dark_sky_summary
-    - sensor.yr_symbol
+  viacom:
+    name: Viacom
+    entities:
+      - switch.birch_branches
+      - switch.desk_lamp
+      - switch.black_star
+      - switch.white_star
