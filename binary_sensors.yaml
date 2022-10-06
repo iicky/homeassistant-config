@@ -1,39 +1,29 @@
 #------------------------------------------------------------------------------
-# ESP-01 Living Room TV Sensor
-#------------------------------------------------------------------------------
-
-  - platform: mqtt
-    name: Living Room TV Power
-    state_topic: "esp-01/living_room_tv"
-    payload_on: "ON"
-    payload_off: "OFF"
-
-#------------------------------------------------------------------------------
 # Mickey Home Binary Sensor
 #------------------------------------------------------------------------------
 
-  - platform: 'bayesian'
-    name: 'mickey_home'
-    prior: 0.6
-    probability_threshold: 0.95
-    observations:
-      - platform: 'state'
-        entity_id: 'device_tracker.google_maps_101608876393904256312'
-        prob_given_true: 0.80
-        prob_given_false: 0.3
-        to_state: 'home'
-      - platform: 'state'
-        entity_id: 'device_tracker.mickeys_iphone_x'
-        prob_given_true: 0.95
-        prob_given_false: 0.2
-        to_state: 'home'
-      - platform: 'numeric_state'
-        entity_id: 'sensor.mickey_iphone_overall_presence'
-        prob_given_true: 0.95
-        prob_given_false: 5
-        above: 20
-      - platform: 'numeric_state'
-        entity_id: 'sensor.mickey_iphone_viacom_presence'
-        prob_given_true: 0
-        prob_given_false: 1
-        above: 0
+#  - platform: 'bayesian'
+#    name: 'mickey_home'
+#    prior: 0.6
+#    probability_threshold: 0.95
+#    observations:
+#      - platform: 'state'
+#        entity_id: 'device_tracker.google_maps_101608876393904256312'
+#        prob_given_true: 0.80
+#        prob_given_false: 0.3
+#        to_state: 'home'
+#      - platform: 'state'
+#        entity_id: 'device_tracker.mickeys_iphone_x'
+#        prob_given_true: 0.95
+#        prob_given_false: 0.2
+#        to_state: 'home'
+#      - platform: 'numeric_state'
+#        entity_id: 'sensor.mickey_iphone_overall_presence'
+#        prob_given_true: 0.95
+#        prob_given_false: 5
+#        above: 20
+#      - platform: 'numeric_state'
+#        entity_id: 'sensor.mickey_iphone_viacom_presence'
+#        prob_given_true: 0
+#        prob_given_false: 1
+#        above: 0

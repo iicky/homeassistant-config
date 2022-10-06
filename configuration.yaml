@@ -5,6 +5,8 @@ homeassistant:
 
   # Name of the location where Home Assistant is running
   name: Home
+  external_url: !secret homeassistant_external_url
+  internal_url: !secret homeassistant_internal_url
 
   # Location required to calculate the time the sun rises and sets
   latitude: !secret homeassistant_latitude
@@ -24,7 +26,6 @@ homeassistant:
 
   auth_providers:
    - type: homeassistant
-  # - type: legacy_api_password
 
 #------------------------------------------------------------------------------
 # FRONTEND
@@ -41,22 +42,15 @@ config:
 # HTTP
 #------------------------------------------------------------------------------
 http:
-#  api_password: !secret http_password
-  base_url: !secret http_base_url
-#
-#  trusted_networks:
-#    - 127.0.0.1
+  use_x_forwarded_for: true
+  trusted_proxies:
 
-#------------------------------------------------------------------------------
-# UPDATER
-#------------------------------------------------------------------------------
-updater:
-  include_used_components: true
+    # core
+    - 192.168.1.222
 
-#------------------------------------------------------------------------------
-# DISCOVERY
-#------------------------------------------------------------------------------
-#discovery:
+    # data network
+    - 192.168.80.0/20
+
 
 #------------------------------------------------------------------------------
 # SYSTEM HEALTH
@@ -73,7 +67,10 @@ api:
 #------------------------------------------------------------------------------
 tts:
   - platform: google_translate
-    service_name: google_say
+    language: en
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
 
 #------------------------------------------------------------------------------
 # CONVERSATION
@@ -101,36 +98,22 @@ map:
 sun:
 
 #------------------------------------------------------------------------------
-# Sonos
-#------------------------------------------------------------------------------
-sonos:
-
-#------------------------------------------------------------------------------
-# WeMo Switches
-#------------------------------------------------------------------------------
-#wemo:
-  #static:
-
-    # Grow Light
-    #- 192.168.1.91
-
-    # Star Light
-    #- 192.168.1.92
-
-    # Unused
-    #- 192.168.1.95
-
-#------------------------------------------------------------------------------
 # InfluxDB
 #------------------------------------------------------------------------------
 
 influxdb:
-  host: 127.0.0.1
-  port: 8086
-  username: !secret influxdb_username
-  password: !secret influxdb_password
-  database: !secret influxdb_database
-  default_measurement: state
+  api_version: 2
+  host: !secret influxdb_host
+  port: !secret influxdb_port
+  ssl: false
+  token: !secret influxdb_token
+  organization: !secret influxdb_organization
+  bucket: !secret influxdb_bucket
+  default_measurement: units
+  tags_attributes:
+    - friendly_name
+  tags:
+    source: HA
 
 #------------------------------------------------------------------------------
 # Node-RED
@@ -142,32 +125,32 @@ panel_iframe:
    url: 'http://192.168.1.222:1880/'
 
 #------------------------------------------------------------------------------
-# MQTT
+# Recorder
 #------------------------------------------------------------------------------
-mqtt:
-  broker: 192.168.1.222
-  port: 1883
-  client_id: core-homeassistant
-  username: !secret mosquitto_user
-  password: !secret mosquitto_pass
+recorder:
+  db_url: !secret db_url
+  auto_purge: false
 
 #------------------------------------------------------------------------------
 # Includes
 #------------------------------------------------------------------------------
-apple_tv: !include apple_tv.yaml
+#apple_tv: !include apple_tv.yaml
 automation: !include automations.yaml
 binary_sensor: !include binary_sensors.yaml
 device_tracker: !include trackers.yaml
+#glances: !include glances.yaml
 group: !include groups.yaml
 homekit: !include homekit.yaml
 ios:
-light: !include lights.yaml
+#light: !include lights.yaml
 media_player: !include media_players.yaml
 mobile_app:
+mqtt: !include mqtt.yaml
 #owntracks: !include owntracks.yaml
 plant: !include plants.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
-speedtestdotnet: !include speedtest.yaml
+#speedtestdotnet: !include speedtest.yaml
+stream:
 switch: !include switches.yaml
 zone: !include zones.yaml

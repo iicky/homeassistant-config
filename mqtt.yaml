@@ -1,0 +1,632 @@
+  #-------------------------------------------------------------------------
+  binary_sensor:
+  #-------------------------------------------------------------------------
+
+  - name: Living Room TV Power
+    state_topic: "esp-01/living_room_tv"
+    payload_on: "ON"
+    payload_off: "OFF"
+
+  #-------------------------------------------------------------------------
+  light:
+  #-------------------------------------------------------------------------
+
+  - schema: json
+    name: 'Hoplite'
+    state_topic: 'wemos/hoplite'
+    command_topic: 'wemos/hoplite/set'
+    availability_topic: 'wemos/hoplite/status'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+  - schema: json
+    name: 'Blue Jar'
+    state_topic: 'wemos/blue_jar'
+    command_topic: 'wemos/blue_jar/set'
+    availability_topic: 'wemos/blue_jar/status'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+  - schema: json
+    name: 'Calavera'
+    state_topic: 'wemos/calavera'
+    command_topic: 'wemos/calavera/set'
+    availability_topic: 'wemos/calavera/status'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+  - schema: json
+    name: 'Vines'
+    state_topic: 'wemos/vines'
+    command_topic: 'wemos/vines/set'
+    retain: true
+    brightness: true
+    rgb: true
+    effect: true
+    effect_list:
+      - solid
+      - rainbow
+      - flash
+      - rainbow flash
+      - fade
+      - rainbow fade
+      - flicker
+      - rainbow flicker
+      - random
+      - rainbow random
+    optimistic: false
+    qos: 0
+
+  - schema: json
+    name: 'Fairy Lights'
+    state_topic: 'wemos/fairy_lights'
+    command_topic: 'wemos/fairy_lights/set'
+    retain: true
+    brightness: true
+    brightness_scale: 100
+    effect: true
+    effect_list:
+      - solid
+      - strobe
+      - fade
+      - flicker
+      - random
+    rgb: false
+    optimistic: false
+    qos: 0
+
+  - schema: json
+    name: 'Neopixel'
+    state_topic: 'wemos/neopixel'
+    command_topic: 'wemos/neopixel/set'
+    availability_topic: 'wemos/neopixel/status'
+    retain: true
+    effect: true
+    effect_list: !include WS2812FX.yaml
+    brightness: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+  #-------------------------------------------------------------------------
+  sensor:
+  #-------------------------------------------------------------------------
+
+  # Living Room AC
+  - state_topic: 'sonoff/sensor/voltage/state'
+    unit_of_measurement: 'V'
+    name: 'Living Room AC Voltage'
+
+  - state_topic: 'sonoff/sensor/current/state'
+    unit_of_measurement: 'A'
+    name: 'Living Room AC Current'
+
+  - state_topic: 'sonoff/sensor/power/state'
+    unit_of_measurement: 'W'
+    name: 'Living Room AC Power'
+
+  # Xiaomi Door Sensor
+  - name: "Front Door"
+    state_topic: "zigbee2mqtt/front_door_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:door"
+    value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
+    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
+
+  - name: "Front Door Battery"
+    state_topic: "zigbee2mqtt/front_door_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
+
+  - name: "Front Door Last Opened"
+    state_topic: "zigbee2mqtt/front_door_sensor/last_opened"
+
+   # Xiaomi Motion Sensor - Bedroom
+  - name: "Bedroom Motion"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
+
+  - name: "Bedroom Last Motion"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor/last_motion"
+
+  - name: "Bedroom Illuminance"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
+
+  - name: "Bedroom Motion Battery"
+    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
+
+   # Xiaomi Motion Sensor - Living Room
+  - name: "Living Room Motion"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
+
+  - name: "Living Room Last Motion"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor/last_motion"
+
+  - name: "Living Room Illuminance"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
+
+  - name: "Living Room Motion Battery"
+    state_topic: "zigbee2mqtt/living_room_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
+
+  # Xiaomi Motion Sensor - Office
+  - name: "Office Motion"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
+
+  - name: "Office Last Motion"
+    state_topic: "zigbee2mqtt/office_motion_sensor/last_motion"
+
+  - name: "Office Illuminance"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
+
+  - name: "Office Motion Battery"
+    state_topic: "zigbee2mqtt/office_motion_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
+
+  # Xiaomi Magic Cube
+  - name: "Magic Cube"
+    state_topic: "zigbee2mqtt/mi_cube"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:cube-outline"
+    value_template: "{{ value_json.action }}"
+    json_attributes_topic: "zigbee2mqtt/mi_cube"
+
+  - name: "Magic Cube Battery"
+    state_topic: "zigbee2mqtt/mi_cube"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/mi_cube"
+
+  # Xiaomi Temperature Sensor - Living Room
+  - name: "Living Room Temperature"
+    state_topic: "zigbee2mqtt/living_room_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:thermometer"
+    device_class: "temperature"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.temperature }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_weather"
+
+  - name: "Living Room Humidity"
+    state_topic: "zigbee2mqtt/living_room_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:water-percent"
+    device_class: "humidity"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_weather"
+
+  - name: "Living Room Pressure"
+    state_topic: "zigbee2mqtt/living_room_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:airballoon"
+    device_class: "pressure"
+    unit_of_measurement: "kPa"
+    value_template: "{{ value_json.pressure }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_weather"
+
+  - name: "Living Room Weather Battery"
+    state_topic: "zigbee2mqtt/living_room_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_weather"
+
+  # Xiaomi Temperature Sensor - Bedroom
+  - name: "Bedroom Temperature"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:thermometer"
+    device_class: "temperature"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.temperature }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_weather"
+
+  - name: "Bedroom Humidity"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:water-percent"
+    device_class: "humidity"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_weather"
+
+  - name: "Bedroom Pressure"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:airballoon"
+    device_class: "pressure"
+    unit_of_measurement: "kPa"
+    value_template: "{{ value_json.pressure }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_weather"
+
+  - name: "Bedroom Weather Battery"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_weather"
+
+  # Xiaomi Temperature Sensor - Office
+  - name: "Office Temperature"
+    state_topic: "zigbee2mqtt/office_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:thermometer"
+    device_class: "temperature"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.temperature }}"
+    json_attributes_topic: "zigbee2mqtt/office_weather"
+
+  - name: "Office Humidity"
+    state_topic: "zigbee2mqtt/office_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:water-percent"
+    device_class: "humidity"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/office_weather"
+
+  - name: "Office Pressure"
+    state_topic: "zigbee2mqtt/office_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:airballoon"
+    device_class: "pressure"
+    unit_of_measurement: "kPa"
+    value_template: "{{ value_json.pressure }}"
+    json_attributes_topic: "zigbee2mqtt/office_weather"
+
+  - name: "Office Weather Battery"
+    state_topic: "zigbee2mqtt/office_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/office_weather"
+
+  # Xiaomi Temperature Sensor - Bathroom
+  - name: "Bathroom Temperature"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:thermometer"
+    device_class: "temperature"
+    unit_of_measurement: "°C"
+    value_template: "{{ value_json.temperature }}"
+    json_attributes_topic: "zigbee2mqtt/bathroom_weather"
+
+  - name: "Bathroom Humidity"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:water-percent"
+    device_class: "humidity"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/bathroom_weather"
+
+  - name: "Bathroom Pressure"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:airballoon"
+    device_class: "pressure"
+    unit_of_measurement: "kPa"
+    value_template: "{{ value_json.pressure }}"
+    json_attributes_topic: "zigbee2mqtt/bathroom_weather"
+
+  - name: "Bathroom Weather Battery"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:battery"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.battery }}"
+    json_attributes_topic: "zigbee2mqtt/bathroom_weather"
+
+
+  #-------------------------------------------------------------------------
+  switch:
+  #-------------------------------------------------------------------------
+
+  - name: "Lite Brite"
+    state_topic: "sonoff_001/switch/power/state"
+    command_topic: "sonoff_001/switch/power/command"
+    availability_topic: "sonoff_001/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Blacksmith"
+    state_topic: "sonoff_002/switch/power/state"
+    command_topic: "sonoff_002/switch/power/command"
+    availability_topic: "sonoff_002/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Lava Lamp"
+    state_topic: "sonoff_003/switch/power/state"
+    command_topic: "sonoff_003/switch/power/command"
+    availability_topic: "sonoff_003/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Office Lights"
+    state_topic: "sonoff_004/switch/power/state"
+    command_topic: "sonoff_004/switch/power/command"
+    availability_topic: "sonoff_004/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Petcube"
+    state_topic: "sonoff_006/switch/power/state"
+    command_topic: "sonoff_006/switch/power/command"
+    availability_topic: "sonoff_006/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  #- name: "Bookcase"
+  #  state_topic: "sonoff_006/switch/power/state"
+  #  command_topic: "sonoff_006/switch/power/command"
+  #  availability_topic: "sonoff_006/status"
+  #  qos: 0
+  #  payload_on: "ON"
+  #  payload_off: "OFF"
+  #  payload_available: "online"
+  #  retain: true
+
+  - name: "Tidbyt"
+    state_topic: "tidbyt/state"
+    command_topic: "tidbyt/state"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+
+  - name: "Headboard"
+    state_topic: "sonoff_007/switch/power/state"
+    command_topic: "sonoff_007/switch/power/command"
+    availability_topic: "sonoff_007/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Lanna Lantern"
+    state_topic: "sonoff_008/switch/power/state"
+    command_topic: "sonoff_008/switch/power/command"
+    availability_topic: "sonoff_008/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Thai Light"
+    state_topic: "sonoff_009/switch/power/state"
+    command_topic: "sonoff_009/switch/power/command"
+    availability_topic: "sonoff_009/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Star Light"
+    state_topic: "sonoff_010/switch/power/state"
+    command_topic: "sonoff_010/switch/power/command"
+    availability_topic: "sonoff_010/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Kitchen Grow Light"
+    state_topic: "sonoff_011/switch/power/state"
+    command_topic: "sonoff_011/switch/power/command"
+    availability_topic: "sonoff_011/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Dohm"
+    state_topic: "sonoff_012/switch/power/state"
+    command_topic: "sonoff_012/switch/power/command"
+    availability_topic: "sonoff_012/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Christmas Tree"
+    state_topic: "sonoff_013/switch/power/state"
+    command_topic: "sonoff_013/switch/power/command"
+    availability_topic: "sonoff_013/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  - name: "Receiver Subwoofer"
+    state_topic: "sonoff_014/switch/power/state"
+    command_topic: "sonoff_014/switch/power/command"
+    availability_topic: "sonoff_014/status"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "online"
+    retain: true
+
+  #- name: "Christmas Tree"
+  #  state_topic: "zigbee2mqtt/christmas_tree"
+  #  command_topic: "zigbee2mqtt/christmas_tree/set"
+  #  availability_topic: "zigbee2mqtt/bridge/state"
+  #  payload_off: "OFF"
+  #  payload_on: "ON"
+  #  value_template: "{{ value_json.state }}"
+  #  json_attributes_topic: "zigbee2mqtt/christmas_tree"
+  #  retain: true
+
+  - name: "Star Bright"
+    state_topic: "zigbee2mqtt/tradfri_001"
+    command_topic: "zigbee2mqtt/tradfri_001/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_001"
+    retain: true
+
+  - name: "Birch Branches"
+    state_topic: "zigbee2mqtt/tradfri_006"
+    command_topic: "zigbee2mqtt/tradfri_006/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_006"
+    retain: true
+
+  - name: "Desk Lamp"
+    state_topic: "viacom/desk_lamp"
+    command_topic: "viacom/desk_lamp/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "viacom/desk_lamp"
+    retain: true
+
+  - name: "Black Star"
+    state_topic: "zigbee2mqtt/tradfri_003"
+    command_topic: "zigbee2mqtt/tradfri_003/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_003"
+    retain: true
+
+  - name: "White Star"
+    state_topic: "zigbee2mqtt/tradfri_005"
+    command_topic: "zigbee2mqtt/tradfri_005/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_005"
+    retain: true
+
+  - name: "Pycelium Fan"
+    state_topic: "pycelium/fan"
+    command_topic: "pycelium/fan"
+    availability_topic: "pycelium/status"
+    qos: 0
+    payload_on: "on"
+    payload_off: "off"
+    payload_available: "online"
+    retain: true
+
+  # Dummy Switches
+  - name: "Bedroom Motion Toggle"
+    state_topic: "toggles/bedroom_motion"
+    command_topic: "toggles/bedroom_motion"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true
+
+  - name: "Front Door Toggle"
+    state_topic: "toggles/front_door"
+    command_topic: "toggles/front_door"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true

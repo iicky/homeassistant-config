@@ -5,624 +5,62 @@
 
   - platform: mta_subway
     line:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - A
-      - C
-      - E
-      - B
-      - D
-      - F
-      - M
-      - G
-      - J
-      - Z
-      - L
-      - N
-      - Q
-      - R
-      - W
-      - S
-      - SI
-
-#------------------------------------------------------------------------------
-# DARK SKY
-#------------------------------------------------------------------------------
-  - platform: darksky
-    api_key: !secret sensor_dark_sky_api_key
-    monitored_conditions:
-      - summary
-      - icon
-      - nearest_storm_distance
-      - precip_type
-      - precip_intensity
-      - precip_probability
-      - precip_accumulation
-      - temperature
-      - apparent_temperature
-      - dew_point
-      - wind_speed
-      - wind_bearing
-      - cloud_cover
-      - humidity
-      - pressure
-      - visibility
-      - ozone
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
-      - temperature_high
-      - temperature_low
-      - apparent_temperature_high
-      - apparent_temperature_low
-      - precip_intensity_max
-      - uv_index
-
-#------------------------------------------------------------------------------
-# MIFLORA-MQTT
-#------------------------------------------------------------------------------
-
-  # African Violet
-  #--------------------------------------------
-  - platform: mqtt
-    name: "african_violet_temperature"
-    state_topic: "miflora/african_violet"
-    unit_of_measurement: '°C'
-    value_template: "{{ value_json.temperature }}"
-  - platform: mqtt
-    name: "african_violet_light_intensity"
-    state_topic: "miflora/african_violet"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.light }}"
-  - platform: mqtt
-    name: "african_violet_moisture"
-    state_topic: "miflora/african_violet"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.moisture }}"
-  - platform: mqtt
-    name: "african_violet_conductivity"
-    state_topic: "miflora/african_violet"
-    unit_of_measurement: 'µS/cm'
-    value_template: "{{ value_json.conductivity }}"
-  - platform: mqtt
-    name: "african_violet_battery"
-    state_topic: "miflora/african_violet"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.battery }}"
-
-  # Christmas Cactus
-  #--------------------------------------------
-  - platform: mqtt
-    name: "christmas_cactus_temperature"
-    state_topic: "miflora/christmas_cactus"
-    unit_of_measurement: '°C'
-    value_template: "{{ value_json.temperature }}"
-  - platform: mqtt
-    name: "christmas_cactus_light_intensity"
-    state_topic: "miflora/christmas_cactus"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.light }}"
-  - platform: mqtt
-    name: "christmas_cactus_moisture"
-    state_topic: "miflora/christmas_cactus"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.moisture }}"
-  - platform: mqtt
-    name: "christmas_cactus_conductivity"
-    state_topic: "miflora/christmas_cactus"
-    unit_of_measurement: 'µS/cm'
-    value_template: "{{ value_json.conductivity }}"
-  - platform: mqtt
-    name: "christmas_cactus_battery"
-    state_topic: "miflora/christmas_cactus"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.battery }}"
-
-  # Golden Pothos
-  #--------------------------------------------
-  - platform: mqtt
-    name: "golden_pothos_temperature"
-    state_topic: "miflora/golden_pothos"
-    unit_of_measurement: '°C'
-    value_template: "{{ value_json.temperature }}"
-  - platform: mqtt
-    name: "golden_pothos_light_intensity"
-    state_topic: "miflora/golden_pothos"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.light }}"
-  - platform: mqtt
-    name: "golden_pothos_moisture"
-    state_topic: "miflora/golden_pothos"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.moisture }}"
-  - platform: mqtt
-    name: "golden_pothos_conductivity"
-    state_topic: "miflora/golden_pothos"
-    unit_of_measurement: 'µS/cm'
-    value_template: "{{ value_json.conductivity }}"
-  - platform: mqtt
-    name: "golden_pothos_battery"
-    state_topic: "miflora/golden_pothos"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.battery }}"
-
-  # Snake Plant
-  #--------------------------------------------
-  - platform: mqtt
-    name: "snake_plant_temperature"
-    state_topic: "miflora/snake_plant"
-    unit_of_measurement: '°C'
-    value_template: "{{ value_json.temperature }}"
-  - platform: mqtt
-    name: "snake_plant_light_intensity"
-    state_topic: "miflora/snake_plant"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.light }}"
-  - platform: mqtt
-    name: "snake_plant_moisture"
-    state_topic: "miflora/snake_plant"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.moisture }}"
-  - platform: mqtt
-    name: "snake_plant_conductivity"
-    state_topic: "miflora/snake_plant"
-    unit_of_measurement: 'µS/cm'
-    value_template: "{{ value_json.conductivity }}"
-  - platform: mqtt
-    name: "snake_plant_battery"
-    state_topic: "miflora/snake_plant"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.battery }}"
-
-  # Umbrella Tree
-  #--------------------------------------------
-  - platform: mqtt
-    name: "umbrella_tree_temperature"
-    state_topic: "miflora/umbrella_tree"
-    unit_of_measurement: '°C'
-    value_template: "{{ value_json.temperature }}"
-  - platform: mqtt
-    name: "umbrella_tree_light_intensity"
-    state_topic: "miflora/umbrella_tree"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.light }}"
-  - platform: mqtt
-    name: "umbrella_tree_moisture"
-    state_topic: "miflora/umbrella_tree"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.moisture }}"
-  - platform: mqtt
-    name: "umbrella_tree_conductivity"
-    state_topic: "miflora/umbrella_tree"
-    unit_of_measurement: 'µS/cm'
-    value_template: "{{ value_json.conductivity }}"
-  - platform: mqtt
-    name: "umbrella_tree_battery"
-    state_topic: "miflora/umbrella_tree"
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.battery }}"
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '6X'
+      - '7'
+      - '7X'
+      - 'A'
+      - 'B'
+      - 'C'
+      - 'D'
+      - 'E'
+      - 'F'
+      - 'FX'
+      - 'G'
+      - 'J'
+      - 'L'
+      - 'M'
+      - 'N'
+      - 'Q'
+      - 'R'
+      - 'GS'
+      - 'FS'
+      - 'H'
+      - 'SI'
+      - 'W'
+      - 'Z'
 
 #------------------------------------------------------------------------------
 # ZIGBEE2MQTT
 #------------------------------------------------------------------------------
 
- # Xiaomi Door Sensor
- #--------------------------------------------
-  - platform: "mqtt"
-    name: "Front Door"
-    state_topic: "zigbee2mqtt/front_door_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:door"
-    value_template: "{% if value_json.contact == True %}Closed{% elif value_json.contact == False %}Open{% endif %}"
-    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
 
-  - platform: "mqtt"
-    name: "Front Door Battery"
-    state_topic: "zigbee2mqtt/front_door_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
 
-  - platform: "mqtt"
-    name: "Front Door Link Quality"
-    state_topic: "zigbee2mqtt/front_door_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "zigbee2mqtt/front_door_sensor"
-
-  - platform: mqtt
-    name: "Front Door Last Opened"
-    state_topic: "zigbee2mqtt/front_door_sensor/last_opened"
-
- # Xiaomi Motion Sensor - Bedroom
- #--------------------------------------------
-  - platform: "mqtt"
-    name: "Bedroom Motion"
-    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:run-fast"
-    value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
-
-  - platform: mqtt
-    name: "Bedroom Last Motion"
-    state_topic: "zigbee2mqtt/bedroom_motion_sensor/last_motion"
-
-  - platform: "mqtt"
-    name: "Bedroom Illuminance"
-    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:theme-light-dark"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.illuminance }}"
-    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
-
-  - platform: "mqtt"
-    name: "Bedroom Motion Battery"
-    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
-
-  - platform: "mqtt"
-    name: "Bedroom Motion Link Quality"
-    state_topic: "zigbee2mqtt/bedroom_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "zigbee2mqtt/bedroom_motion_sensor"
-
- # Xiaomi Motion Sensor - Living Room
- #--------------------------------------------
-  - platform: "mqtt"
-    name: "Living Room Motion"
-    state_topic: "zigbee2mqtt/living_room_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:run-fast"
-    value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
-
-  - platform: mqtt
-    name: "Living Room Last Motion"
-    state_topic: "zigbee2mqtt/living_room_motion_sensor/last_motion"
-
-  - platform: "mqtt"
-    name: "Living Room Illuminance"
-    state_topic: "zigbee2mqtt/living_room_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:theme-light-dark"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.illuminance }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
-
-  - platform: "mqtt"
-    name: "Living Room Motion Battery"
-    state_topic: "zigbee2mqtt/living_room_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
-
-  - platform: "mqtt"
-    name: "Living Room Motion Link Quality"
-    state_topic: "zigbee2mqtt/living_room_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_motion_sensor"
-
- # Xiaomi Motion Sensor - Office
- #--------------------------------------------
-  - platform: "mqtt"
-    name: "Office Motion"
-    state_topic: "zigbee2mqtt/office_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:run-fast"
-    value_template: "{{ value_json.occupancy }}"
-    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
-
-  - platform: mqtt
-    name: "Office Last Motion"
-    state_topic: "zigbee2mqtt/office_motion_sensor/last_motion"
-
-  - platform: "mqtt"
-    name: "Office Illuminance"
-    state_topic: "zigbee2mqtt/office_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:theme-light-dark"
-    unit_of_measurement: 'lx'
-    value_template: "{{ value_json.illuminance }}"
-    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
-
-  - platform: "mqtt"
-    name: "Office Motion Battery"
-    state_topic: "zigbee2mqtt/office_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
-
-  - platform: "mqtt"
-    name: "Office Motion Link Quality"
-    state_topic: "zigbee2mqtt/office_motion_sensor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "zigbee2mqtt/office_motion_sensor"
-
- # Xiaomi Magic Cube
- #--------------------------------------------
-  - platform: "mqtt"
-    name: "Magic Cube"
-    state_topic: "zigbee2mqtt/mi_cube"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:cube-outline"
-    value_template: "{{ value_json.action }}"
-    json_attributes_topic: "zigbee2mqtt/mi_cube"
-
-  - platform: "mqtt"
-    name: "Magic Cube Battery"
-    state_topic: "zigbee2mqtt/mi_cube"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "zigbee2mqtt/mi_cube"
-
-  - platform: "mqtt"
-    name: "Magic Cube Link Quality"
-    state_topic: "zigbee2mqtt/mi_cube"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "zigbee2mqtt/mi_cube"
-
- # Xiaomi Temperature Sensor - Living Room
- #--------------------------------------------
-  - platform: "mqtt"
-    name: "Living Room Temperature"
-    state_topic: "zigbee2mqtt/living_room_weather"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:thermometer"
-    device_class: "temperature"
-    unit_of_measurement: "°C"
-    value_template: "{{ value_json.temperature }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_weather"
-
-  - platform: "mqtt"
-    name: "Living Room Humidity"
-    state_topic: "zigbee2mqtt/living_room_weather"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:water-percent"
-    device_class: "humidity"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.humidity }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_weather"
-
-  - platform: "mqtt"
-    name: "Living Room Pressure"
-    state_topic: "zigbee2mqtt/living_room_weather"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:airballoon"
-    device_class: "pressure"
-    unit_of_measurement: "kPa"
-    value_template: "{{ value_json.pressure }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_weather"
-
-  - platform: "mqtt"
-    name: "Living Room Weather Battery"
-    state_topic: "zigbee2mqtt/living_room_weather"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_weather"
-
-  - platform: "mqtt"
-    name: "Living Room Weather Link Quality"
-    state_topic: "zigbee2mqtt/living_room_weather"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "zigbee2mqtt/living_room_weather"
-
-  # Xiaomi Temperature Sensor - Viacom
-  #--------------------------------------------
-  - platform: "mqtt"
-    name: "Viacom Temperature"
-    state_topic: "viacom/viacom_weather"
-    availability_topic: "viacom/bridge/state"
-    icon: "mdi:thermometer"
-    device_class: "temperature"
-    unit_of_measurement: "°C"
-    value_template: "{{ value_json.temperature }}"
-    json_attributes_topic: "viacom/viacom_weather"
-
-  - platform: "mqtt"
-    name: "Viacom Humidity"
-    state_topic: "viacom/viacom_weather"
-    availability_topic: "viacom/bridge/state"
-    icon: "mdi:water-percent"
-    device_class: "humidity"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.humidity }}"
-    json_attributes_topic: "viacom/viacom_weather"
-
-  - platform: "mqtt"
-    name: "Viacom Pressure"
-    state_topic: "viacom/viacom_weather"
-    availability_topic: "viacom/bridge/state"
-    icon: "mdi:airballoon"
-    device_class: "pressure"
-    unit_of_measurement: "kPa"
-    value_template: "{{ value_json.pressure }}"
-    json_attributes_topic: "viacom/viacom_weather"
-
-  - platform: "mqtt"
-    name: "Viacom Weather Battery"
-    state_topic: "viacom/viacom_weather"
-    availability_topic: "viacom/bridge/state"
-    icon: "mdi:battery"
-    device_class: "battery"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.battery }}"
-    json_attributes_topic: "viacom/viacom_weather"
-
-  - platform: "mqtt"
-    name: "Viacom Weather Link Quality"
-    state_topic: "viacom/viacom_weather"
-    availability_topic: "viacom/bridge/state"
-    icon: "mdi:access-point"
-    unit_of_measurement: "LQI"
-    value_template: "{{ value_json.linkquality }}"
-    json_attributes_topic: "viacom/viacom_weather"
-
-#------------------------------------------------------------------------------
-# SONOFF POW
-#------------------------------------------------------------------------------
-
- # Living Room AC
- #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'sonoff_pow_001/sensor/voltage/state'
-    unit_of_measurement: 'V'
-    name: 'Living Room AC Voltage'
-
-  - platform: mqtt
-    state_topic: 'sonoff_pow_001/sensor/current/state'
-    unit_of_measurement: 'A'
-    name: 'Living Room AC Current'
-
-  - platform: mqtt
-    state_topic: 'sonoff_pow_001/sensor/power/state'
-    unit_of_measurement: 'W'
-    name: 'Living Room AC Power'
+  #- platform: "mqtt"
+  #  name: "Viacom Weather Link Quality"
+  #  state_topic: "viacom/viacom_weather"
+  #  availability_topic: "viacom/bridge/state"
+  #  icon: "mdi:access-point"
+  #  unit_of_measurement: "LQI"
+  #  value_template: "{{ value_json.linkquality }}"
+  #  json_attributes_topic: "viacom/viacom_weather"
 
 #------------------------------------------------------------------------------
 # PRESENCE
 #------------------------------------------------------------------------------
 
- # Living Room
- #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'presence/living_room/D8:8F:76:D2:23:75'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Mickey iPhone Living Room Presence'
-
-  - platform: mqtt
-    state_topic: 'presence/living_room/38:89:2C:1E:B9:98'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Maggie iPhone Living Room Presence'
-
-  - platform: mqtt
-    state_topic: 'presence/living_room/D0:33:11:0C:84:1B'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Junie iPhone Living Room Presence'
-
- # Bedroom
- #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'presence/bedroom/D8:8F:76:D2:23:75'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Mickey iPhone Bedroom Presence'
-
-  - platform: mqtt
-    state_topic: 'presence/bedroom/38:89:2C:1E:B9:98'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Maggie iPhone Bedroom Presence'
-
-  - platform: mqtt
-    state_topic: 'presence/bedroom/D0:33:11:0C:84:1B'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Junie iPhone Bedroom Presence'
-
- # Office
- #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'presence/office/D8:8F:76:D2:23:75'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Mickey iPhone Office Presence'
-
-  - platform: mqtt
-    state_topic: 'presence/office/38:89:2C:1E:B9:98'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Maggie iPhone Office Presence'
-
-  - platform: mqtt
-    state_topic: 'presence/office/D0:33:11:0C:84:1B'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Junie iPhone Office Presence'
-
- # Overall Home
- #--------------------------------------------
-
-  - platform: min_max
-    name: "Mickey iPhone Overall Presence"
-    type: mean
-    round_digits: 0
-    entity_ids:
-      - sensor.mickey_iphone_living_room_presence
-      - sensor.mickey_iphone_bedroom_presence
-      - sensor.mickey_iphone_office_presence
-
-  - platform: min_max
-    name: "Maggie iPhone Overall Presence"
-    type: mean
-    round_digits: 0
-    entity_ids:
-      - sensor.maggie_iphone_living_room_presence
-      - sensor.maggie_iphone_bedroom_presence
-      - sensor.maggie_iphone_office_presence
-
-  - platform: min_max
-    name: "Junie iPhone Overall Presence"
-    type: mean
-    round_digits: 0
-    entity_ids:
-      - sensor.junie_iphone_living_room_presence
-      - sensor.junie_iphone_bedroom_presence
-      - sensor.junie_iphone_office_presence
-
  # Work
  #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'presence/viacom/D8:8F:76:D2:23:75'
-    value_template: '{{ value_json.confidence }}'
-    unit_of_measurement: '%'
-    name: 'Mickey iPhone Viacom Presence'
+#  - platform: mqtt
+#    state_topic: 'presence/viacom/D8:8F:76:D2:23:75'
+#    value_template: '{{ value_json.confidence }}'
+#    unit_of_measurement: '%'
+#    name: 'Mickey iPhone Viacom Presence'
 
 #------------------------------------------------------------------------------
 # Room Assistant
@@ -630,38 +68,67 @@
 
  # Mickey
  #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'room-assistant/sensor/bluetooth-classic-d8-8f-76-d2-23-75/state'
-    name: 'Mickey Room Presence'
+ # - platform: mqtt
+ #   state_topic: 'room-assistant/sensor/bluetooth-classic-d8-8f-76-d2-23-75/state'
+ #   name: 'Mickey Room Presence'
 
  # Maggie
  #--------------------------------------------
-  - platform: mqtt
-    state_topic: 'room-assistant/sensor/bluetooth-classic-38-89-2c-1e-b9-98/state'
-    name: 'Maggie Room Presence'
+ # - platform: mqtt
+ #   state_topic: 'room-assistant/sensor/bluetooth-classic-38-89-2c-1e-b9-98/state'
+ #   name: 'Maggie Room Presence'
+
+
+#------------------------------------------------------------------------------
+# Pycelium
+#------------------------------------------------------------------------------
+
+#  - platform: "mqtt"
+#    name: "Pycelium Temperature"
+#    state_topic: "pycelium/temperature"
+#    availability_topic: "pycelium/status"
+#    icon: "mdi:thermometer"
+#    device_class: "temperature"
+#    unit_of_measurement: "°C"
+
+#  - platform: "mqtt"
+#    name: "Pycelium Humidity"
+#    state_topic: "pycelium/humidity"
+#    availability_topic: "pycelium/status"
+#    icon: "mdi:water-percent"
+#    device_class: "humidity"
+#    unit_of_measurement: "%"
+
+#  - platform: "mqtt"
+#    name: "Pycelium CO2"
+#    state_topic: "pycelium/co2"
+#    availability_topic: "pycelium/status"
+#    icon: "mdi:air-filter"
+#    unit_of_measurement: "ppm"
+
 
 #------------------------------------------------------------------------------
 # Templates
 #------------------------------------------------------------------------------
 
-  - platform: template
-    sensors:
+  #- platform: template
+  #  sensors:
 
       # Airplants Last Watered
-      airplants_last_watered:
-        value_template: '{{ strptime("2019-06-07", "%Y-%m-%d").date() }}'
-        entity_id: sensor.date
-        friendly_name: 'Airplants Last Watered'
+      #airplants_last_watered:
+      #  value_template: '{{ strptime("2019-06-07", "%Y-%m-%d").date() }}'
+      #  entity_id: sensor.date
+      #  friendly_name: 'Airplants Last Watered'
 
       # Airplants Days Since Last Watered
-      airplants_days_since_last_watered:
-        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime(states.sensor.airplants_last_watered.state, "%Y-%m-%d")) ) / 86400 ) | int }}'
-        entity_id: sensor.date, sensor.airplants_last_watered
-        friendly_name: "Airplants Days Since Last Watered"
-        icon_template: >-
-          {% if states.sensor.airplants_days_since_last_watered.state | int  > 14 %}
-            mdi:timer-sand-empty
-          {% else %}
-            mdi:timer-sand-full
-          {% endif %}
-        unit_of_measurement: "Days"
+      #airplants_days_since_last_watered:
+      #  value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime(states.sensor.airplants_last_watered.state, "%Y-%m-%d")) ) / 86400 ) | int }}'
+      #  entity_id: sensor.date, sensor.airplants_last_watered
+      #  friendly_name: "Airplants Days Since Last Watered"
+      #  icon_template: >-
+      #    {% if states.sensor.airplants_days_since_last_watered.state | int  > 14 %}
+      #      mdi:timer-sand-empty
+      #    {% else %}
+      #      mdi:timer-sand-full
+      #    {% endif %}
+      #  unit_of_measurement: "Days"
