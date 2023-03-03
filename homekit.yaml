@@ -1,8 +1,38 @@
   filter:
     include_entities:
+
+      # Living Room Entities
+      - switch.rice_lights
+      - switch.petcube
+      - switch.living_room_tv
+      - switch.ac_main
+      - media_player.receiver
+      - media_player.apple_tv
+      - switch.birch_branches
+      - switch.tidbyt
+
+      # Mood Lights Entities
+      - switch.bookcase
+      - switch.lava_lamp
+      - switch.lite_brite
+      - switch.star_light
+      - switch.star_bright
+      - switch.lanna_lantern
+      - switch.thai_light
+      - light.hoplite
+      - light.blue_jar
+      - light.vines
+      - light.calavera
+
+      # Bedroom Entities
       - switch.dohm
       - switch.blacksmith
       - switch.headboard
       - switch.flames
       - light.fairy_lights
       - switch.bedroom_motion_toggle
+      - switch.black_star
+      - switch.white_star
+
+      # Office Entities
+      - switch.office_lights
