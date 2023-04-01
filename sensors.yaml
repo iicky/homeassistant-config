@@ -58,33 +58,12 @@
   #  json_attributes_topic: "viacom/viacom_weather"
 
 #------------------------------------------------------------------------------
-# PRESENCE
+# ESPRESENCE
 #------------------------------------------------------------------------------
 
- # Work
- #--------------------------------------------
-#  - platform: mqtt
-#    state_topic: 'presence/viacom/D8:8F:76:D2:23:75'
-#    value_template: '{{ value_json.confidence }}'
-#    unit_of_measurement: '%'
-#    name: 'Mickey iPhone Viacom Presence'
-
-#------------------------------------------------------------------------------
-# Room Assistant
-#------------------------------------------------------------------------------
-
- # Mickey
- #--------------------------------------------
- # - platform: mqtt
- #   state_topic: 'room-assistant/sensor/bluetooth-classic-d8-8f-76-d2-23-75/state'
- #   name: 'Mickey Room Presence'
-
- # Maggie
- #--------------------------------------------
- # - platform: mqtt
- #   state_topic: 'room-assistant/sensor/bluetooth-classic-38-89-2c-1e-b9-98/state'
- #   name: 'Maggie Room Presence'
-
+  - platform: mqtt_room
+    device_id: living_room
+    state_topic: "espresense/rooms"
 
 #------------------------------------------------------------------------------
 # Pycelium
@@ -114,28 +93,3 @@
 #    unit_of_measurement: "ppm"
 
 
-#------------------------------------------------------------------------------
-# Templates
-#------------------------------------------------------------------------------
-
-  #- platform: template
-  #  sensors:
-
-      # Airplants Last Watered
-      #airplants_last_watered:
-      #  value_template: '{{ strptime("2019-06-07", "%Y-%m-%d").date() }}'
-      #  entity_id: sensor.date
-      #  friendly_name: 'Airplants Last Watered'
-
-      # Airplants Days Since Last Watered
-      #airplants_days_since_last_watered:
-      #  value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime(states.sensor.airplants_last_watered.state, "%Y-%m-%d")) ) / 86400 ) | int }}'
-      #  entity_id: sensor.date, sensor.airplants_last_watered
-      #  friendly_name: "Airplants Days Since Last Watered"
-      #  icon_template: >-
-      #    {% if states.sensor.airplants_days_since_last_watered.state | int  > 14 %}
-      #      mdi:timer-sand-empty
-      #    {% else %}
-      #      mdi:timer-sand-full
-      #    {% endif %}
-      #  unit_of_measurement: "Days"
