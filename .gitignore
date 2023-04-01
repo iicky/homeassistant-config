@@ -7,3 +7,4 @@ secrets.yaml
 *.save
 *.pyc
 *.log
+custom_components/
