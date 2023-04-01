@@ -12,7 +12,7 @@
         alias: Front Door Last Opened Time
         data:
           topic: 'zigbee2mqtt/front_door_sensor/last_opened'
-          payload_template: '{{ as_timestamp(states.sensor.front_door.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          payload_template: '{{ as_timestamp(states.sensor.front_door.last_updated) | timestamp_custom("%b %d %I:%M %p") }}'
           retain: 'true'
 
   - alias: Bedroom Last Motion Log
@@ -25,7 +25,7 @@
         alias: Bedroom Last Motion Time
         data:
           topic: 'zigbee2mqtt/bedroom_motion_sensor/last_motion'
-          payload_template: '{{ as_timestamp(states.sensor.bedroom_motion.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          payload_template: '{{ as_timestamp(states.sensor.bedroom_motion.last_updated) | timestamp_custom("%b %d %I:%M %p") }}'
           retain: 'true'
 
   - alias: Living Room Last Motion Log
@@ -38,7 +38,7 @@
         alias: Living Room Last Motion Time
         data:
           topic: 'zigbee2mqtt/living_room_motion_sensor/last_motion'
-          payload_template: '{{ as_timestamp(states.sensor.living_room_motion.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          payload_template: '{{ as_timestamp(states.sensor.living_room_motion.last_updated) | timestamp_custom("%b %d %I:%M %p") }}'
           retain: 'true'
 
   - alias: Office Last Motion Log
@@ -51,5 +51,5 @@
         alias: Office Last Motion Time
         data:
           topic: 'zigbee2mqtt/office_motion_sensor/last_motion'
-          payload_template: '{{ as_timestamp(states.sensor.office_motion.last_changed) | timestamp_custom("%b %d %I:%M %p") }}'
+          payload_template: '{{ as_timestamp(states.sensor.office_motion.last_updated) | timestamp_custom("%b %d %I:%M %p") }}'
           retain: 'true'
