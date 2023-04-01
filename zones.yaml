@@ -4,14 +4,14 @@
     radius: 25
     icon: mdi:home
 
-  - name: Viacom
-    latitude: !secret zones_viacom_latitude
-    longitude: !secret zones_viacom_longitude
-    radius: 50
-    icon: mdi:briefcase
+#  - name: Viacom
+#    latitude: !secret zones_viacom_latitude
+#    longitude: !secret zones_viacom_longitude
+#    radius: 50
+#    icon: mdi:briefcase
 
-  - name: Turner
-    latitude: !secret zones_turner_latitude
-    longitude: !secret zones_turner_longitude
-    radius: 50
-    icon: mdi:briefcase
+#  - name: Turner
+#    latitude: !secret zones_turner_latitude
+#    longitude: !secret zones_turner_longitude
+#    radius: 50
+#    icon: mdi:briefcase
