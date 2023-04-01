@@ -2,18 +2,17 @@
 # UNIFI
 #------------------------------------------------------------------------------
 
-  - platform: unifi
-    host: 192.168.1.35
-    username: !secret tracker_unifi_username
-    password: !secret tracker_unifi_password
-    verify_ssl: false
-    ssid_filter:
-      - !secret tracker_unifi_ssid
+  #- platform: unifi
+  #  host: 192.168.1.35
+  #  username: !secret tracker_unifi_username
+  #  password: !secret tracker_unifi_password
+  #  verify_ssl: false
+  #  ssid_filter:
+  #    - !secret tracker_unifi_ssid
 
 #------------------------------------------------------------------------------
 # GOOGLE MAPS
 #------------------------------------------------------------------------------
 
-  - platform: google_maps
-    username: !secret tracker_google_maps_email
-    password: !secret tracker_google_maps_password
+  #- platform: google_maps
+  #  username: !secret tracker_google_maps_email
