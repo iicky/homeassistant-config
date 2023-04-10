@@ -36,34 +36,23 @@
       - 'Z'
 
 #------------------------------------------------------------------------------
-# ZIGBEE2MQTT
-#------------------------------------------------------------------------------
-
-  - platform: mqtt
-    name: Zigbee2MQTT Network Map
-    state_topic: zigbee2mqtt/bridge/response/networkmap
-    value_template: >-
-      {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
-    json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
-    json_attributes_template: "{{ value_json.data.value | tojson }}"
-
-
-  #- platform: "mqtt"
-  #  name: "Viacom Weather Link Quality"
-  #  state_topic: "viacom/viacom_weather"
-  #  availability_topic: "viacom/bridge/state"
-  #  icon: "mdi:access-point"
-  #  unit_of_measurement: "LQI"
-  #  value_template: "{{ value_json.linkquality }}"
-  #  json_attributes_topic: "viacom/viacom_weather"
-
-#------------------------------------------------------------------------------
 # ESPRESENCE
 #------------------------------------------------------------------------------
 
+  - unique_id: mickey_iphone_presence
+    platform: mqtt_room
+    device_id: 'mickey_iphone'
+    name: 'Mickey iPhone Presence'
+    state_topic: 'espresense/devices/mickey_iphone'
+    timeout: 10
+    away_timeout: 120
+
   - platform: mqtt_room
-    device_id: living_room
-    state_topic: "espresense/rooms"
+    device_id: 'irk:1a45f2beebb1424986e5bded9bd5cfc9'
+    name: 'Mickey Watch Presence'
+    state_topic: 'espresence/devices/irk:1a45f2beebb1424986e5bded9bd5cfc9'
+    timeout: 10
+    away_timeout: 120
 
 #------------------------------------------------------------------------------
 # Pycelium
