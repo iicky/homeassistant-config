@@ -2,17 +2,44 @@
   binary_sensor:
   #-------------------------------------------------------------------------
 
-  - name: Living Room TV Power
+  - unique_id: living_room_tv_power
+    device_class: power
+    name: Living Room TV Power
+    icon: mdi:power
     state_topic: "esp-01/living_room_tv"
     payload_on: "ON"
     payload_off: "OFF"
+
+  - unique_id: 'kitchen_presence'
+    device_class: connectivity
+    name: 'Kitchen Presence'
+    state_topic: espresense/rooms/kitchen/status
+    json_attributes_topic: espresense/rooms/kitchen/telemetry
+    payload_on: online
+    payload_off: offline
+
+  - unique_id: 'living_room_presence'
+    device_class: connectivity
+    name: 'Living Room Presence'
+    state_topic: espresense/rooms/living_room/status
+    json_attributes_topic: espresense/rooms/living_room/telemetry
+    payload_on: online
+    payload_off: offline
+
+  - unique_id: 'bedroom_presence'
+    device_class: connectivity
+    name: 'Bedroom Presence'
+    state_topic: espresense/rooms/bedroom/status
+    json_attributes_topic: espresense/rooms/bedroom/telemetry
+    payload_on: online
+    payload_off: offline
 
   #-------------------------------------------------------------------------
   light:
   #-------------------------------------------------------------------------
 
-  - schema: json
-    name: 'Hoplite'
+  - name: 'Hoplite' 
+    schema: json
     state_topic: 'wemos/hoplite'
     command_topic: 'wemos/hoplite/set'
     availability_topic: 'wemos/hoplite/status'
@@ -24,8 +51,8 @@
     optimistic: false
     qos: 0
 
-  - schema: json
-    name: 'Blue Jar'
+  - name: 'Blue Jar'
+    schema: json
     state_topic: 'wemos/blue_jar'
     command_topic: 'wemos/blue_jar/set'
     availability_topic: 'wemos/blue_jar/status'
@@ -37,8 +64,8 @@
     optimistic: false
     qos: 0
 
-  - schema: json
-    name: 'Calavera'
+  - name: 'Calavera'
+    schema: json
     state_topic: 'wemos/calavera'
     command_topic: 'wemos/calavera/set'
     availability_topic: 'wemos/calavera/status'
@@ -389,6 +416,13 @@
     value_template: "{{ value_json.battery }}"
     json_attributes_topic: "zigbee2mqtt/bathroom_weather"
 
+
+  - name: Zigbee2MQTT Network Map
+    state_topic: zigbee2mqtt/bridge/response/networkmap
+    value_template: >-
+      {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+    json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
+    json_attributes_template: "{{ value_json.data.value | tojson }}"
 
   #-------------------------------------------------------------------------
   switch:
