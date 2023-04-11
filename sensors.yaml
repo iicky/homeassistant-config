@@ -47,6 +47,14 @@
     timeout: 10
     away_timeout: 120
 
+  - unique_id: maggie_iphone_presence
+    platform: mqtt_room
+    device_id: 'maggie_iphone'
+    name: 'Maggie iPhone Presence'
+    state_topic: 'espresense/devices/maggie_iphone'
+    timeout: 10
+    away_timeout: 120
+
   - platform: mqtt_room
     device_id: 'irk:1a45f2beebb1424986e5bded9bd5cfc9'
     name: 'Mickey Watch Presence'
