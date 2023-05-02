@@ -33,7 +33,7 @@
       retain: true
       topic: logs/last_motion/office
       qos: '0'
-      payload_template: '{{ as_timestamp(states.binary_sensor.office.last_updated)
+      payload_template: '{{ as_timestamp(states.binary_sensor.office_motion.last_updated)
         | timestamp_custom("%b %d %I:%M %p") }}'
   mode: single
 - id: '1683068377123'
@@ -52,7 +52,7 @@
       retain: true
       topic: logs/last_motion/bedroom
       qos: '0'
-      payload_template: '{{ as_timestamp(states.binary_sensor.bedroom.last_updated)
+      payload_template: '{{ as_timestamp(states.binary_sensor.bedroom_motion.last_updated)
         | timestamp_custom("%b %d %I:%M %p") }}'
   mode: single
 - id: '1683068426747'
