@@ -14,8 +14,8 @@
       retain: true
       topic: logs/last_motion/living_room
       qos: '0'
-      payload_template: '''{{ as_timestamp(states.binary_sensor.living_room_motion.last_updated)
-        | timestamp_custom("%b %d %I:%M %p") }}'''
+      payload_template: '{{ as_timestamp(states.binary_sensor.living_room_motion.last_updated)
+        | timestamp_custom("%b %d %I:%M %p") }}'
   mode: single
 - id: '1683068274050'
   alias: 'Last Motion Log: Office'
@@ -33,8 +33,8 @@
       retain: true
       topic: logs/last_motion/office
       qos: '0'
-      payload_template: '''{{ as_timestamp(states.binary_sensor.office.last_updated)
-        | timestamp_custom("%b %d %I:%M %p") }}'''
+      payload_template: '{{ as_timestamp(states.binary_sensor.office.last_updated)
+        | timestamp_custom("%b %d %I:%M %p") }}'
   mode: single
 - id: '1683068377123'
   alias: 'Last Motion Log: Bedroom'
@@ -52,8 +52,8 @@
       retain: true
       topic: logs/last_motion/bedroom
       qos: '0'
-      payload_template: '''{{ as_timestamp(states.binary_sensor.bedroom.last_updated)
-        | timestamp_custom("%b %d %I:%M %p") }}'''
+      payload_template: '{{ as_timestamp(states.binary_sensor.bedroom.last_updated)
+        | timestamp_custom("%b %d %I:%M %p") }}'
   mode: single
 - id: '1683068426747'
   alias: 'Last Opened Log: Front Door'
@@ -71,6 +71,6 @@
       retain: true
       topic: logs/last_opened/front_door
       qos: '0'
-      payload_template: '''{{ as_timestamp(states.binary_sensor.front_door.last_updated)
-        | timestamp_custom("%b %d %I:%M %p") }}'''
+      payload_template: '{{ as_timestamp(states.binary_sensor.front_door.last_updated)
+        | timestamp_custom("%b %d %I:%M %p") }}'
   mode: single
