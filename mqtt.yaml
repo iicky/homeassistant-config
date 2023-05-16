@@ -2,7 +2,7 @@
   binary_sensor:
   #-------------------------------------------------------------------------
 
-  - unique_id: living_room_tv_power
+  - unique_id: 'living_room_tv_power'
     device_class: power
     name: Living Room TV Power
     icon: mdi:power
@@ -33,6 +33,50 @@
     json_attributes_topic: espresense/rooms/bedroom/telemetry
     payload_on: online
     payload_off: offline
+
+  - unique_id: 'front_door'
+    name: "Front Door"
+    device_class: door
+    state_topic: "zigbee2mqtt/front_door"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:door"
+    value_template: "{{ value_json.contact }}"
+    payload_on: false
+    payload_off: true
+    json_attributes_topic: "zigbee2mqtt/front_door"
+
+  - unique_id: 'bedroom_motion'
+    device_class: occupancy
+    name: "Bedroom Motion"
+    state_topic: "zigbee2mqtt/bedroom_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    payload_on: true
+    payload_off: false
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion"
+
+  - unique_id: 'office_motion'
+    device_class: occupancy
+    name: "Office Motion"
+    state_topic: "zigbee2mqtt/office_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    payload_on: true
+    payload_off: false
+    json_attributes_topic: "zigbee2mqtt/office_motion"
+
+  - unique_id: 'living_room_motion'
+    device_class: occupancy
+    name: "Living Room Motion"
+    state_topic: "zigbee2mqtt/living_room_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:run-fast"
+    value_template: "{{ value_json.occupancy }}"
+    payload_on: true
+    payload_off: false
+    json_attributes_topic: "zigbee2mqtt/living_room_motion"
 
   #-------------------------------------------------------------------------
   light:
@@ -316,6 +360,54 @@
     payload_on: "on"
     payload_off: "off"
     payload_available: "online"
+    retain: true
+
+  - unique_id: "star_bright"
+    device_class: "switch"
+    name: "Star Bright"
+    state_topic: "zigbee2mqtt/tradfri_001"
+    command_topic: "zigbee2mqtt/tradfri_001/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_001"
+    retain: true
+
+  - unique_id: "black_star"
+    device_class: "switch"
+    name: "Black Star"
+    state_topic: "zigbee2mqtt/tradfri_003"
+    command_topic: "zigbee2mqtt/tradfri_003/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_003"
+    retain: true
+
+  - unique_id: "white_star"
+    device_class: "switch"
+    name: "White Star"
+    state_topic: "zigbee2mqtt/tradfri_005"
+    command_topic: "zigbee2mqtt/tradfri_005/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_005"
+    retain: true
+
+  - unique_id: "birch_branches"
+    device_class: "switch"
+    name: "Birch Branches"
+    state_topic: "zigbee2mqtt/tradfri_006"
+    command_topic: "zigbee2mqtt/tradfri_006/set"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: "ON"
+    payload_off: "OFF"
+    value_template: "{{ value_json.state }}"
+    json_attributes_topic: "zigbee2mqtt/tradfri_006"
     retain: true
 
   # Dummy Switches
