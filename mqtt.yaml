@@ -2,6 +2,8 @@
   binary_sensor:
   #-------------------------------------------------------------------------
 
+    # Power
+    #-------------------------------------------------
   - unique_id: 'living_room_tv_power'
     device_class: power
     name: Living Room TV Power
@@ -10,6 +12,8 @@
     payload_on: "ON"
     payload_off: "OFF"
 
+    # Presence
+    #-------------------------------------------------
   - unique_id: 'kitchen_presence'
     device_class: connectivity
     name: 'Kitchen Presence'
@@ -34,6 +38,8 @@
     payload_on: online
     payload_off: offline
 
+    # Magnetic
+    #-------------------------------------------------
   - unique_id: 'front_door'
     name: "Front Door"
     device_class: door
@@ -45,6 +51,8 @@
     payload_off: true
     json_attributes_topic: "zigbee2mqtt/front_door"
 
+    # Motion
+    #-------------------------------------------------
   - unique_id: 'bedroom_motion'
     device_class: occupancy
     name: "Bedroom Motion"
@@ -179,29 +187,20 @@
   #-------------------------------------------------------------------------
 
   # Living Room AC
-  - state_topic: 'sonoff/sensor/voltage/state'
+  - unique_id: living_room_ac_voltage
+    state_topic: 'sonoff/sensor/voltage/state'
     unit_of_measurement: 'V'
     name: 'Living Room AC Voltage'
 
-  - state_topic: 'sonoff/sensor/current/state'
+  - unique_id: living_room_ac_current
+    state_topic: 'sonoff/sensor/current/state'
     unit_of_measurement: 'A'
     name: 'Living Room AC Current'
 
-  - state_topic: 'sonoff/sensor/power/state'
+  - unique_id: living_room_ac_power
+    state_topic: 'sonoff/sensor/power/state'
     unit_of_measurement: 'W'
     name: 'Living Room AC Power'
-
-  - name: "Front Door Last Opened"
-    state_topic: "logs/last_opened/front_door"
-
-  - name: "Bedroom Last Motion"
-    state_topic: "logs/last_motion/bedroom"
-
-  - name: "Living Room Last Motion"
-    state_topic: "logs/last_motion/living_room"
-
-  - name: "Office Last Motion"
-    state_topic: "logs/last_motion/office"
 
   - name: Zigbee2MQTT Network Map
     state_topic: zigbee2mqtt/bridge/response/networkmap
@@ -210,11 +209,147 @@
     json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
     json_attributes_template: "{{ value_json.data.value | tojson }}"
 
+    # ------------------------------------------------
+    # Logs
+    #-------------------------------------------------
+  - unique_id: "front_door_last_opened"
+    device_class: date
+    name: "Front Door Last Opened"
+    state_topic: "logs/last_opened/front_door"
+
+  - unique_id: "bedroom_last_motion"
+    device_class: date
+    name: "Bedroom Last Motion"
+    state_topic: "logs/last_motion/bedroom"
+
+  - unique_id: "office_last_motion"
+    device_class: date
+    name: "Office Last Motion"
+    state_topic: "logs/last_motion/office"
+
+  - unique_id: "living_room_last_motion"
+    device_class: date
+    name: "Living Room Last Motion"
+    state_topic: "logs/last_motion/living_room"
+
+    # ------------------------------------------------
+    # Illuminance
+    #-------------------------------------------------
+  - unique_id: "bedroom_illuminance"
+    device_class: illuminance
+    name: "Bedroom Illuminance"
+    state_topic: "zigbee2mqtt/bedroom_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/bedroom_motion"
+
+  - unique_id: "office_illuminance"
+    device_class: illuminance
+    name: "Office Illuminance"
+    state_topic: "zigbee2mqtt/office_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/office_motion"
+
+  - unique_id: "living_room_illuminance"
+    device_class: illuminance
+    name: "Living Room Illuminance"
+    state_topic: "zigbee2mqtt/living_room_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:theme-light-dark"
+    unit_of_measurement: 'lx'
+    value_template: "{{ value_json.illuminance }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_motion"
+
+  # ------------------------------------------------
+  # Temperature
+  #-------------------------------------------------
+  - unique_id: bathroom_temperature
+    device_class: temperature
+    state_class: measurement
+    unit_of_measurement: "°F"
+    name: "Bathroom Temperature"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: zigbee2mqtt/bridge/state
+    icon: mdi:thermometer
+    value_template: >-
+        {% set t = value_json.temperature | float %}
+        {{ "%.2f" | format((t * 9 / 5) + 32)}}
+    json_attributes_topic: "zigbee2mqtt/bathroom_weather"
+
+  - unique_id: living_room_temperature
+    device_class: temperature
+    state_class: measurement
+    unit_of_measurement: "°F"
+    name: "Living Room Temperature"
+    state_topic: "zigbee2mqtt/living_room_weather"
+    availability_topic: zigbee2mqtt/bridge/state
+    icon: mdi:thermometer
+    value_template: >-
+        {% set t = value_json.temperature | float %}
+        {{ "%.2f" | format((t * 9 / 5) + 32)}}
+    json_attributes_topic: "zigbee2mqtt/living_room_weather"
+
+  - unique_id: office_temperature
+    device_class: temperature
+    state_class: measurement
+    unit_of_measurement: "°F"
+    name: "Office Temperature"
+    state_topic: "zigbee2mqtt/office_weather"
+    availability_topic: zigbee2mqtt/bridge/state
+    icon: mdi:thermometer
+    value_template: >-
+        {% set t = value_json.temperature | float %}
+        {{ "%.2f" | format((t * 9 / 5) + 32)}}
+    json_attributes_topic: "zigbee2mqtt/office_weather"
+
+  # ------------------------------------------------
+  # Humidity
+  #-------------------------------------------------
+  - unique_id: bathroom_humidity
+    device_class: humidity
+    state_class: measurement
+    unit_of_measurement: "%"
+    name: "Bathroom Humidity"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: zigbee2mqtt/bridge/state
+    icon: mdi:water-percent
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/bathroom_weather"
+
+  - unique_id: living_room_humidity
+    device_class: humidity
+    state_class: measurement
+    unit_of_measurement: "%"
+    name: "Living Room Humidity"
+    state_topic: "zigbee2mqtt/living_room_weather"
+    availability_topic: zigbee2mqtt/bridge/state
+    icon: mdi:water-percent
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/living_room_weather"
+
+  - unique_id: office_humidity
+    device_class: humidity
+    state_class: measurement
+    unit_of_measurement: "%"
+    name: "Office Humidity"
+    state_topic: "zigbee2mqtt/office_weather"
+    availability_topic: zigbee2mqtt/bridge/state
+    icon: mdi:water-percent
+    value_template: "{{ value_json.humidity }}"
+    json_attributes_topic: "zigbee2mqtt/office_weather"
+
   #-------------------------------------------------------------------------
   switch:
   #-------------------------------------------------------------------------
 
-  - name: "Lite Brite"
+  - unique_id: "lite_brite"
+    device_class: switch
+    name: "Lite Brite"
     state_topic: "sonoff_001/switch/power/state"
     command_topic: "sonoff_001/switch/power/command"
     availability_topic: "sonoff_001/status"
@@ -224,7 +359,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Blacksmith"
+  - unique_id: "blacksmith"
+    device_class: switch
+    name: "Blacksmith"
     state_topic: "sonoff_002/switch/power/state"
     command_topic: "sonoff_002/switch/power/command"
     availability_topic: "sonoff_002/status"
@@ -234,7 +371,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Lava Lamp"
+  - unique_id: "lava_lamp"
+    device_class: switch
+    name: "Lava Lamp"
     state_topic: "sonoff_003/switch/power/state"
     command_topic: "sonoff_003/switch/power/command"
     availability_topic: "sonoff_003/status"
@@ -244,7 +383,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Office Lights"
+  - unique_id: "office_lights"
+    device_class: switch
+    name: "Office Lights"
     state_topic: "sonoff_004/switch/power/state"
     command_topic: "sonoff_004/switch/power/command"
     availability_topic: "sonoff_004/status"
@@ -254,7 +395,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Petcube"
+  - unique_id: "petcube"
+    device_class: switch
+    name: "Petcube"
     state_topic: "sonoff_006/switch/power/state"
     command_topic: "sonoff_006/switch/power/command"
     availability_topic: "sonoff_006/status"
@@ -264,15 +407,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Tidbyt"
-    state_topic: "tidbyt/state"
-    command_topic: "tidbyt/state"
-    qos: 0
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: true
-
-  - name: "Headboard"
+  - unique_id: "office_grow_light"
+    device_class: switch
+    name: "Office Grow Light"
     state_topic: "sonoff_007/switch/power/state"
     command_topic: "sonoff_007/switch/power/command"
     availability_topic: "sonoff_007/status"
@@ -282,7 +419,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Lanna Lantern"
+  - unique_id: "lanna_lantern"
+    device_class: switch
+    name: "Lanna Lantern"
     state_topic: "sonoff_008/switch/power/state"
     command_topic: "sonoff_008/switch/power/command"
     availability_topic: "sonoff_008/status"
@@ -292,7 +431,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Thai Light"
+  - unique_id: "thai_light"
+    device_class: switch
+    name: "Thai Light"
     state_topic: "sonoff_009/switch/power/state"
     command_topic: "sonoff_009/switch/power/command"
     availability_topic: "sonoff_009/status"
@@ -302,7 +443,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Star Light"
+  - unique_id: "star_light"
+    device_class: switch
+    name: "Star Light"
     state_topic: "sonoff_010/switch/power/state"
     command_topic: "sonoff_010/switch/power/command"
     availability_topic: "sonoff_010/status"
@@ -312,7 +455,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Kitchen Grow Light"
+  - unique_id: "kitchen_grow_light"
+    device_class: switch
+    name: "Kitchen Grow Light"
     state_topic: "sonoff_011/switch/power/state"
     command_topic: "sonoff_011/switch/power/command"
     availability_topic: "sonoff_011/status"
@@ -322,7 +467,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Dohm"
+  - unique_id: "dohm"
+    device_class: switch
+    name: "Dohm"
     state_topic: "sonoff_012/switch/power/state"
     command_topic: "sonoff_012/switch/power/command"
     availability_topic: "sonoff_012/status"
@@ -332,7 +479,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Christmas Tree"
+  - unique_id: "christmas_tree"
+    device_class: switch
+    name: "Christmas Tree"
     state_topic: "sonoff_013/switch/power/state"
     command_topic: "sonoff_013/switch/power/command"
     availability_topic: "sonoff_013/status"
@@ -342,7 +491,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Receiver Subwoofer"
+  - unique_id: "receiver_subwoofer"
+    device_class: switch
+    name: "Receiver Subwoofer"
     state_topic: "sonoff_014/switch/power/state"
     command_topic: "sonoff_014/switch/power/command"
     availability_topic: "sonoff_014/status"
@@ -352,7 +503,9 @@
     payload_available: "online"
     retain: true
 
-  - name: "Pycelium Fan"
+  - unique_id: "pycelium_fan"
+    device_class: switch
+    name: "Pycelium Fan"
     state_topic: "pycelium/fan"
     command_topic: "pycelium/fan"
     availability_topic: "pycelium/status"
@@ -410,8 +563,20 @@
     json_attributes_topic: "zigbee2mqtt/tradfri_006"
     retain: true
 
+  - unique_id: "tidbyt"
+    device_class: switch
+    name: "Tidbyt"
+    state_topic: "tidbyt/state"
+    command_topic: "tidbyt/state"
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+
   # Dummy Switches
-  - name: "Bedroom Motion Toggle"
+  - unique_id: "bedroom_motion_toggle"
+    device_class: switch
+    name: "Bedroom Motion Toggle"
     state_topic: "toggles/bedroom_motion"
     command_topic: "toggles/bedroom_motion"
     payload_on: "ON"
@@ -420,7 +585,9 @@
     qos: 0
     retain: true
 
-  - name: "Front Door Toggle"
+  - unique_id: "front_door_toggle"
+    device_class: switch
+    name: "Front Door Toggle"
     state_topic: "toggles/front_door"
     command_topic: "toggles/front_door"
     payload_on: "ON"
